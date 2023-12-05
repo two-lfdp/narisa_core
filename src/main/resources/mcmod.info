@@ -1,0 +1,16 @@
+[
+{
+  "modid": "narisacore",
+  "name": "NarisaCore",
+  "description": "Nnnnasrisa's core Mod. Adds some items, blocks, structures, and others.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Nnnnarisa"],
+  "credits": "The Forge and FML guys, for making this example",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
