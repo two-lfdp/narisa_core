@@ -58,7 +58,7 @@ public class NCItemMetal extends Item{
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            baseName + "_" + EnumMetalType.values()[i].lowerName()),
+                            baseName + "_" + EnumMetalType.values()[i].getLowerName()),
                     "inventory");
         }
 
