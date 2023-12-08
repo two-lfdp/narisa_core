@@ -1,4 +1,12 @@
 #NarisaCore English Language File
 
 #Items
-item.ingot.name=Copper Ingot
+item.ingotCopper.name=Copper Ingot
+item.ingotTin.name=Tin Ingot
+item.ingotAluminum.name=Aluminum Ingot
+item.ingotLead.name=Lead Ingot
+item.ingotSilver.name=Silver Ingot
+item.ingotBronze.name=Bronze Ingot
+item.ingotElectrum.name=Electrum Ingot
+item.ingotAlubrass.name=Aluminum Brass Ingot
+item.ingotSteel.name=Steel Ingot

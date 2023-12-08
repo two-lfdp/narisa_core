@@ -1,12 +1,3 @@
-/**
- * GNU GPL v3 is applied to this program.
- *
- * Websites and Sources I referred:
- * https://qiita.com/Akasaki/items/390ab8832bd3843a080d
- * https://www.tntmodders.com/tutorial/
- * https://github.com/kegare/Skyland
- */
-
 package nnnnarisa.narisacore;
 
 import net.minecraft.item.Item;

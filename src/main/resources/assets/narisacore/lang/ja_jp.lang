@@ -1,4 +1,12 @@
 #NarisaCore 日本語言語ファイル
 
 #アイテム
-item.ingot.name=銅インゴット
+item.ingotCopper.name=銅インゴット
+item.ingotTin.name=錫インゴット
+item.ingotAluminum.name=アルミニウムインゴット
+item.ingotLead.name=鉛インゴット
+item.ingotSilver.name=銀インゴット
+item.ingotBronze.name=青銅インゴット
+item.ingotElectrum.name=エレクトラムインゴット
+item.ingotAlubrass.name=アルミ真鍮インゴット
+item.ingotSteel.name=鋼インゴット
