@@ -14,17 +14,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 
-public class NCItemMetal extends Item{
+public class NCItemMaterialMetal extends Item{
     private final String baseName;
 
-    public NCItemMetal (String baseName){
+    public NCItemMaterialMetal(String baseName){
         this.baseName = baseName;
 
         setUnlocalizedName(baseName);
         setRegistryName(NarisaCore.MODID, baseName);
         setHasSubtypes(true);
         setMaxDamage(0);
-        setCreativeTab(CreativeTabs.MATERIALS);
+        setCreativeTab(NarisaCore.TAB_NARISACORE);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class NCItemMetal extends Item{
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            baseName + "_" + EnumMetalType.values()[i].getLowerName()),
+                            baseName + "/" + baseName + "_" + EnumMetalType.values()[i].getLowerName()),
                     "inventory");
         }
 

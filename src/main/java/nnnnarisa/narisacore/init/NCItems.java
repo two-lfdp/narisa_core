@@ -5,19 +5,23 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.registries.IForgeRegistry;
-import nnnnarisa.narisacore.item.NCItemMetal;
+import nnnnarisa.narisacore.item.NCItemMaterialMetal;
 
 public class NCItems {
-    public static NCItemMetal ingot;
+    public static NCItemMaterialMetal ingot;
+    public static NCItemMaterialMetal nugget;
 
     public static void initItems(IForgeRegistry<Item> registry){
-        ingot = new NCItemMetal("ingot");
+        ingot = new NCItemMaterialMetal("ingot");
+        nugget = new NCItemMaterialMetal("nugget");
 
         ingot.registerItems(registry);
+        nugget.registerItems(registry);
     }
 
     @SideOnly(Side.CLIENT)
     public static void initModels(ModelRegistryEvent event){
         ingot.registerModels(event);
+        nugget.registerModels(event);
     }
 }

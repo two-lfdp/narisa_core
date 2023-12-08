@@ -1,5 +1,8 @@
 #NarisaCore English Language File
 
+#Tabs
+itemGroup.narisacore=NarisaCore
+
 #Items
 item.ingotCopper.name=Copper Ingot
 item.ingotTin.name=Tin Ingot
@@ -10,3 +13,12 @@ item.ingotBronze.name=Bronze Ingot
 item.ingotElectrum.name=Electrum Ingot
 item.ingotAlubrass.name=Aluminum Brass Ingot
 item.ingotSteel.name=Steel Ingot
+item.nuggetCopper.name=Copper Nugget
+item.nuggetTin.name=Tin Nugget
+item.nuggetAluminum.name=Aluminum Nugget
+item.nuggetLead.name=Lead Nugget
+item.nuggetSilver.name=Silver Nugget
+item.nuggetBronze.name=Bronze Nugget
+item.nuggetElectrum.name=Electrum Nugget
+item.nuggetAlubrass.name=Aluminum Brass Nugget
+item.nuggetSteel.name=Steel Nugget

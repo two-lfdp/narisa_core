@@ -1,5 +1,8 @@
 #NarisaCore 日本語言語ファイル
 
+#タブ
+itemGroup.narisacore=NarisaCore
+
 #アイテム
 item.ingotCopper.name=銅インゴット
 item.ingotTin.name=錫インゴット
@@ -10,3 +13,12 @@ item.ingotBronze.name=青銅インゴット
 item.ingotElectrum.name=エレクトラムインゴット
 item.ingotAlubrass.name=アルミ真鍮インゴット
 item.ingotSteel.name=鋼インゴット
+item.nuggetCopper.name=銅の塊
+item.nuggetTin.name=錫の塊
+item.nuggetAluminum.name=アルミニウムの塊
+item.nuggetLead.name=鉛の塊
+item.nuggetSilver.name=銀の塊
+item.nuggetBronze.name=青銅の塊
+item.nuggetElectrum.name=エレクトラムの塊
+item.nuggetAlubrass.name=アルミ真鍮の塊
+item.nuggetSteel.name=鋼の塊
