@@ -15,7 +15,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 
 public class NCItemMetal extends Item{
-    private String baseName;
+    private final String baseName;
 
     public NCItemMetal (String baseName){
         this.baseName = baseName;
@@ -58,7 +58,7 @@ public class NCItemMetal extends Item{
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            baseName + "_" + EnumMetalType.values()[i]),
+                            baseName + "_" + EnumMetalType.values()[i].lowerName()),
                     "inventory");
         }
 
@@ -80,7 +80,7 @@ public class NCItemMetal extends Item{
         ALUBRASS("alubrass", "Alubrass"),
         STEEL("steel", "Steel");
 
-        private String lowerName, headCapitalName;
+        private final String lowerName, headCapitalName;
 
         EnumMetalType(String lowerName, String headCapitalName){
             this.lowerName = lowerName;
