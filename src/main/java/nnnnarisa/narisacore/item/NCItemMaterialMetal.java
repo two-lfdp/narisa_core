@@ -11,8 +11,10 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
+import nnnnarisa.narisacore.util.EnumMetalType;
 
 public class NCItemMaterialMetal extends Item{
     private final String baseName;
@@ -30,7 +32,7 @@ public class NCItemMaterialMetal extends Item{
     @Override
     public void getSubItems(CreativeTabs tab, NonNullList<ItemStack> subItems){
         if(this.isInCreativeTab(tab)){
-            for(int i = 0 ; i < EnumMetalType.values().length ; i++){
+            for(int i = 0; i < EnumMetalType.values().length ; i++){
                 subItems.add(new ItemStack(this, 1, i));
             }
         }
@@ -49,6 +51,11 @@ public class NCItemMaterialMetal extends Item{
 
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
+
+        for(int i = 0 ; i < EnumMetalType.values().length ; i++){
+            OreDictionary.registerOre(baseName + EnumMetalType.values()[i].getHeadCapitalName(),
+                    new ItemStack(this, 1, i));
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -69,30 +76,4 @@ public class NCItemMaterialMetal extends Item{
         }
     }
 
-    public enum EnumMetalType {
-        COPPER("copper", "Copper"),
-        TIN("tin", "Tin"),
-        ALUMINUM("aluminum", "Aluminum"),
-        LEAD("lead", "Lead"),
-        SILVER("silver", "Silver"),
-        BRONZE("bronze", "Bronze"),
-        ELECTRUM("electrum", "Electrum"),
-        ALUBRASS("alubrass", "Alubrass"),
-        STEEL("steel", "Steel");
-
-        private final String lowerName, headCapitalName;
-
-        EnumMetalType(String lowerName, String headCapitalName){
-            this.lowerName = lowerName;
-            this.headCapitalName = headCapitalName;
-        }
-
-        public String getLowerName(){
-            return lowerName;
-        }
-
-        public String getHeadCapitalName(){
-            return headCapitalName;
-        }
-    }
 }

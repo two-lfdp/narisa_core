@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "narisacore:ingot",
+            "data": 8
+        }
+    ],
+    "result": {
+        "item": "narisacore:nugget",
+        "data": 8,
+        "count": 9
+    }
+}
