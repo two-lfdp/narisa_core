@@ -25,3 +25,14 @@ item.nuggetSteel.name=Steel Nugget
 item.coalCoke.name=Coal Coke
 item.dustSulfur.name=Sulfur
 item.dustNiter.name=Niter
+
+#Blocks
+tile.storageMetal.copper.name=Block of Copper
+tile.storageMetal.tin.name=Block of Tin
+tile.storageMetal.aluminum.name=Block of Aluminum
+tile.storageMetal.lead.name=Block of Lead
+tile.storageMetal.silver.name=Block of Silver
+tile.storageMetal.bronze.name=Block of Bronze
+tile.storageMetal.electrum.name=Block of Electrum
+tile.storageMetal.alubrass.name=Block of Aluminum Brass
+tile.storageMetal.steel.name=Block of Steel

@@ -10,28 +10,23 @@ import nnnnarisa.narisacore.item.NCItemMaterialMetal;
 import nnnnarisa.narisacore.item.NCItemMaterialDust;
 
 public class NCItems {
-    public static NCItemMaterialMetal ingot;
-    public static NCItemMaterialMetal nugget;
-    public static NCItemCoalCoke coalCoke;
-    public static NCItemMaterialDust dust;
+    public static final NCItemMaterialMetal INGOT = new NCItemMaterialMetal("ingot");;
+    public static final NCItemMaterialMetal NUGGET = new NCItemMaterialMetal("nugget");
+    public static final NCItemCoalCoke COAL_COKE = new NCItemCoalCoke();
+    public static final NCItemMaterialDust DUST = new NCItemMaterialDust();
 
-    public static void initItems(IForgeRegistry<Item> registry){
-        ingot = new NCItemMaterialMetal("ingot");
-        nugget = new NCItemMaterialMetal("nugget");
-        coalCoke = new NCItemCoalCoke();
-        dust = new NCItemMaterialDust();
-
-        ingot.registerItems(registry);
-        nugget.registerItems(registry);
-        coalCoke.registerItems(registry);
-        dust.registerItems(registry);
+    public static void registerItems(IForgeRegistry<Item> registry){
+        INGOT.registerItems(registry);
+        NUGGET.registerItems(registry);
+        COAL_COKE.registerItems(registry);
+        DUST.registerItems(registry);
     }
 
     @SideOnly(Side.CLIENT)
-    public static void initModels(ModelRegistryEvent event){
-        ingot.registerModels(event);
-        nugget.registerModels(event);
-        coalCoke.registerModels(event);
-        dust.registerModels(event);
+    public static void registerModels(ModelRegistryEvent event){
+        INGOT.registerModels(event);
+        NUGGET.registerModels(event);
+        COAL_COKE.registerModels(event);
+        DUST.registerModels(event);
     }
 }

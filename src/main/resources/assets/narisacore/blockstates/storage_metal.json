@@ -1,0 +1,32 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=copper": {
+      "model": "narisacore:storage/storage_copper"
+    },
+    "type=tin": {
+      "model": "narisacore:storage/storage_tin"
+    },
+    "type=aluminum": {
+      "model": "narisacore:storage/storage_aluminum"
+    },
+    "type=lead": {
+      "model": "narisacore:storage/storage_lead"
+    },
+    "type=silver": {
+      "model": "narisacore:storage/storage_silver"
+    },
+    "type=bronze": {
+      "model": "narisacore:storage/storage_bronze"
+    },
+    "type=electrum": {
+      "model": "narisacore:storage/storage_electrum"
+    },
+    "type=alubrass": {
+      "model": "narisacore:storage/storage_alubrass"
+    },
+    "type=steel": {
+      "model": "narisacore:storage/storage_steel"
+    }
+  }
+}

@@ -25,3 +25,14 @@ item.nuggetSteel.name=鋼の塊
 item.coalCoke.name=石炭コークス
 item.dustSulfur.name=硫黄
 item.dustNiter.name=硝石
+
+#ブロック
+tile.storageMetal.copper.name=銅ブロック
+tile.storageMetal.tin.name=錫ブロック
+tile.storageMetal.aluminum.name=アルミニウムブロック
+tile.storageMetal.lead.name=鉛ブロック
+tile.storageMetal.silver.name=銀ブロック
+tile.storageMetal.bronze.name=青銅ブロック
+tile.storageMetal.electrum.name=エレクトラムブロック
+tile.storageMetal.alubrass.name=アルミ真鍮ブロック
+tile.storageMetal.steel.name=鋼ブロック

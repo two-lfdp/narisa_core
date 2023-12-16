@@ -11,6 +11,6 @@ public class CreativeTabNarisaCore extends CreativeTabs{
 
     @Override
     public ItemStack getTabIconItem(){
-        return new ItemStack(NCItems.ingot, 1, 0);
+        return new ItemStack(NCItems.INGOT, 1, 0);
     }
 }
