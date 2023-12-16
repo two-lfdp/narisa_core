@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "narisacore:storage_metal",
+            "data": 4
+        }
+    ],
+    "result": {
+        "item": "narisacore:ingot",
+        "data": 4,
+        "count": 9
+    }
+}

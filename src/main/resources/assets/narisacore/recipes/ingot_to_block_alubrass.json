@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "narisacore:ingot",
+            "data": 7
+        }
+    },
+    "result": {
+        "item": "narisacore:storage_metal",
+        "data": 7
+    }
+}
