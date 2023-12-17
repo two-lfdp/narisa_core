@@ -36,3 +36,5 @@ tile.storageMetal.bronze.name=青銅ブロック
 tile.storageMetal.electrum.name=エレクトラムブロック
 tile.storageMetal.alubrass.name=アルミ真鍮ブロック
 tile.storageMetal.steel.name=鋼ブロック
+tile.storageFuel.charcoal.name=木炭ブロック
+tile.storageFuel.coalCoke.name=石炭コークスブロック

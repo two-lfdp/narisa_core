@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "narisacore:coal_coke"
+        }
+    },
+    "result": {
+        "item": "narisacore:storage_fuel",
+        "data": 1
+    }
+}

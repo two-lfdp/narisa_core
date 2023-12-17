@@ -36,3 +36,5 @@ tile.storageMetal.bronze.name=Block of Bronze
 tile.storageMetal.electrum.name=Block of Electrum
 tile.storageMetal.alubrass.name=Block of Aluminum Brass
 tile.storageMetal.steel.name=Block of Steel
+tile.storageFuel.charcoal.name=Block of Charcoal
+tile.storageFuel.coalCoke.name=Block of Coal Coke

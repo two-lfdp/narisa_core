@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "narisacore:storage_fuel",
+            "data": 1
+        }
+    ],
+    "result": {
+        "item": "narisacore:coal_coke",
+        "count": 9
+    }
+}

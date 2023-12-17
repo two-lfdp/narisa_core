@@ -1,0 +1,11 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=charcoal": {
+      "model": "narisacore:storage/storage_charcoal"
+    },
+    "type=coal_coke": {
+      "model": "narisacore:storage/storage_coal_coke"
+    }
+  }
+}
