@@ -1,0 +1,18 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "narisacore:dust",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "narisacore:storage_misc",
+        "data": 0
+    }
+}

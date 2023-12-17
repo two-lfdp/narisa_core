@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "narisacore:storage_misc",
+            "data": 2
+        }
+    ],
+    "result": {
+        "item": "minecraft:quartz",
+        "count": 9
+    }
+}

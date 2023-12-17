@@ -38,3 +38,6 @@ tile.storageMetal.alubrass.name=アルミ真鍮ブロック
 tile.storageMetal.steel.name=鋼ブロック
 tile.storageFuel.charcoal.name=木炭ブロック
 tile.storageFuel.coalCoke.name=石炭コークスブロック
+tile.storageMisc.sulfur.name=硫黄ブロック
+tile.storageMisc.niter.name=硝石ブロック
+tile.storageMisc.quartz.name=クォーツ貯蔵ブロック

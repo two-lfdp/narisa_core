@@ -1,0 +1,14 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=sulfur": {
+      "model": "narisacore:storage/storage_sulfur"
+    },
+    "type=niter": {
+      "model": "narisacore:storage/storage_niter"
+    },
+    "type=quartz": {
+      "model": "narisacore:storage/storage_quartz"
+    }
+  }
+}

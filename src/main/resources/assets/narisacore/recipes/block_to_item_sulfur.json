@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "narisacore:storage_misc",
+            "data": 0
+        }
+    ],
+    "result": {
+        "item": "narisacore:dust",
+        "data": 0,
+        "count": 9
+    }
+}

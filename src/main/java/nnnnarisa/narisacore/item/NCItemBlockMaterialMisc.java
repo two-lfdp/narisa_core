@@ -12,30 +12,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
-import nnnnarisa.narisacore.block.NCBlockMaterialFuel;
-import nnnnarisa.narisacore.block.NCBlockMaterialFuel.EnumType;
+import nnnnarisa.narisacore.block.NCBlockMaterialMisc;
+import nnnnarisa.narisacore.block.NCBlockMaterialMisc.EnumType;
 
-public class NCItemBlockMaterialFuel extends NCItemBlock{
-    public NCItemBlockMaterialFuel(NCBlockMaterialFuel block){
+public class NCItemBlockMaterialMisc extends NCItemBlock{
+    public NCItemBlockMaterialMisc(NCBlockMaterialMisc block){
         super(block, true);
 
-        setRegistryName(NarisaCore.MODID, "storage_fuel");
-    }
-
-    @Override
-    public int getItemBurnTime(ItemStack stack){
-        return EnumType.values()[stack.getItemDamage()].getBurningTime();
+        setRegistryName(NarisaCore.MODID, "storage_misc");
     }
 
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
 
-        for(int i = 0; i < EnumType.values().length ; i++){
-            OreDictionary.registerOre("block" + EnumType.values()[i].getHeadCapitalName(),
+        for(int i = 0; i < EnumType.getAdditionalType().length ; i++){
+            OreDictionary.registerOre("block" + EnumType.getAdditionalType()[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
         }
-        OreDictionary.registerOre("blockFuelCoke",
-                new ItemStack(this, 1, EnumType.COAL_COKE.ordinal()));
+        OreDictionary.registerOre("blockSaltpeter",
+                new ItemStack(this, 1, EnumType.NITER.ordinal()));
     }
 
     @SideOnly(Side.CLIENT)
@@ -45,7 +40,7 @@ public class NCItemBlockMaterialFuel extends NCItemBlock{
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            "storage/storage_" + EnumType.values()[i].getSnakeName()),
+                            "storage/storage_" + EnumType.values()[i].getLowerName()),
                     "inventory");
         }
 

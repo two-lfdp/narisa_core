@@ -38,3 +38,6 @@ tile.storageMetal.alubrass.name=Block of Aluminum Brass
 tile.storageMetal.steel.name=Block of Steel
 tile.storageFuel.charcoal.name=Block of Charcoal
 tile.storageFuel.coalCoke.name=Block of Coal Coke
+tile.storageMisc.sulfur.name=Block of Sulfur
+tile.storageMisc.niter.name=Block of Niter
+tile.storageMisc.quartz.name=Quartz Storage Block
