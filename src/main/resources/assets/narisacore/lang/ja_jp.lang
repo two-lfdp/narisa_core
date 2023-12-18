@@ -46,4 +46,6 @@ tile.oreMetal.tin.name=錫鉱石
 tile.oreMetal.aluminum.name=アルミニウム鉱石
 tile.oreMetal.lead.name=鉛鉱石
 tile.oreMetal.silver.name=銀鉱石
-
+tile.oreMisc.sulfur.name=硫黄鉱石
+tile.oreMisc.niter.name=硝石鉱石
+tile.oreMisc.quartz.name=地上クォーツブロック

@@ -46,3 +46,6 @@ tile.oreMetal.tin.name=Tin Ore
 tile.oreMetal.aluminum.name=Aluminum Ore
 tile.oreMetal.lead.name=Lead Ore
 tile.oreMetal.silver.name=Silver Ore
+tile.oreMisc.sulfur.name=Sulfur Ore
+tile.oreMisc.niter.name=Niter Ore
+tile.oreMisc.quartz.name=Overworld Quartz Ore

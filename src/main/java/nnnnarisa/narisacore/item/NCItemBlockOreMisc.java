@@ -2,10 +2,9 @@ package nnnnarisa.narisacore.item;
 
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -15,43 +14,45 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
-import nnnnarisa.narisacore.block.NCBlockOreMetal;
+import nnnnarisa.narisacore.block.NCBlockOreMisc;
+import nnnnarisa.narisacore.block.NCBlockOreMisc.EnumType;
 import nnnnarisa.narisacore.init.NCItems;
-import nnnnarisa.narisacore.util.EnumMetalType;
 
-public class NCItemBlockOreMetal extends NCItemBlock{
-    private static final EnumMetalType[] TYPE_SIMPLE = EnumMetalType.getSimpleMetal();
-
-    public NCItemBlockOreMetal(NCBlockOreMetal block){
+public class NCItemBlockOreMisc extends NCItemBlock{
+    public NCItemBlockOreMisc(NCBlockOreMisc block){
         super(block, true);
 
-        setRegistryName(NarisaCore.MODID, "ore_metal");
+        setRegistryName(NarisaCore.MODID, "ore_misc");
     }
 
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
 
-        for(int i = 0; i < TYPE_SIMPLE.length ; i++){
-            OreDictionary.registerOre("ore" + TYPE_SIMPLE[i].getHeadCapitalName(),
+        for(int i = 0; i < EnumType.getAdditionalType().length ; i++){
+            OreDictionary.registerOre("ore" + EnumType.getAdditionalType()[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
         }
+        OreDictionary.registerOre("oreSaltpeter",
+                new ItemStack(this, 1, EnumType.NITER.ordinal()));
     }
 
     public void registerSmeltingRecipes(){
-        for(int i = 0; i < TYPE_SIMPLE.length ; i++){
-            GameRegistry.addSmelting(new ItemStack(this, 1, i),
-                    new ItemStack(NCItems.INGOT, 1, i), 0.7f);
-        }
+        GameRegistry.addSmelting(new ItemStack(this, 1, 0),
+                new ItemStack(NCItems.DUST, 1, 0), 0.1f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 1),
+                new ItemStack(NCItems.DUST, 1, 1), 0.1f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 2),
+                new ItemStack(Items.QUARTZ, 1, 0), 0.2f);
     }
 
     @SideOnly(Side.CLIENT)
     public void registerModels(ModelRegistryEvent event){
-        ModelResourceLocation[] models = new ModelResourceLocation[TYPE_SIMPLE.length];
+        ModelResourceLocation[] models = new ModelResourceLocation[EnumType.values().length];
 
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            "ore/ore_" + TYPE_SIMPLE[i].getLowerName()),
+                            "ore/ore_" + EnumType.values()[i].getLowerName()),
                     "inventory");
         }
 
