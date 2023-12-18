@@ -13,15 +13,16 @@ import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.util.EnumMetalType;
 
-public class NCBlockMaterialMetal extends INCBlockMulti.Impl {
-    public static final PropertyEnum<EnumMetalType> VARIANT = PropertyEnum.create("type", EnumMetalType.class);
-    private static final EnumMetalType[] TYPE_VALUES = EnumMetalType.values();
+public class NCBlockOreMetal extends INCBlockMulti.Impl {
+    public static final PropertyEnum<EnumMetalType> VARIANT =
+            PropertyEnum.create("type", EnumMetalType.class, EnumMetalType.getSimpleMetalList());
+    private static final EnumMetalType[] TYPE_SIMPLE = EnumMetalType.getSimpleMetal();
 
-    public NCBlockMaterialMetal(){
+    public NCBlockOreMetal(){
         super(Material.IRON);
 
-        setUnlocalizedName("storageMetal");
-        setRegistryName(NarisaCore.MODID, "storage_metal");
+        setUnlocalizedName("oreMetal");
+        setRegistryName(NarisaCore.MODID, "ore_metal");
         setCreativeTab(NarisaCore.TAB_NARISACORE);
 
         setHardness(5.0F);
@@ -29,8 +30,8 @@ public class NCBlockMaterialMetal extends INCBlockMulti.Impl {
         setSoundType(SoundType.METAL);
         setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, EnumMetalType.COPPER));
 
-        for(int i = 0 ; i < TYPE_VALUES.length ; i++){
-            EnumMetalType current = TYPE_VALUES[i];
+        for(int i = 0 ; i < TYPE_SIMPLE.length ; i++){
+            EnumMetalType current = TYPE_SIMPLE[i];
             setHarvestLevel("pickaxe", current.getBlockLevel(), getStateFromMeta(current.ordinal()));
         }
     }
@@ -42,7 +43,7 @@ public class NCBlockMaterialMetal extends INCBlockMulti.Impl {
 
     @Override
     public IBlockState getStateFromMeta(int meta){
-        return this.getDefaultState().withProperty(VARIANT, TYPE_VALUES[meta]);
+        return this.getDefaultState().withProperty(VARIANT, TYPE_SIMPLE[meta]);
     }
 
     @Override
@@ -57,14 +58,14 @@ public class NCBlockMaterialMetal extends INCBlockMulti.Impl {
 
     @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-        for (int i = 0; i < TYPE_VALUES.length; i++) {
+        for (int i = 0; i < TYPE_SIMPLE.length; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }
 
     @Override
     protected String getMetaName(int meta){
-        return TYPE_VALUES[meta].getLowerName();
+        return TYPE_SIMPLE[meta].getLowerName();
     }
 
     public void registerBlocks(IForgeRegistry<Block> registry){

@@ -41,3 +41,9 @@ tile.storageFuel.coalCoke.name=石炭コークスブロック
 tile.storageMisc.sulfur.name=硫黄ブロック
 tile.storageMisc.niter.name=硝石ブロック
 tile.storageMisc.quartz.name=クォーツ貯蔵ブロック
+tile.oreMetal.copper.name=銅鉱石
+tile.oreMetal.tin.name=錫鉱石
+tile.oreMetal.aluminum.name=アルミニウム鉱石
+tile.oreMetal.lead.name=鉛鉱石
+tile.oreMetal.silver.name=銀鉱石
+

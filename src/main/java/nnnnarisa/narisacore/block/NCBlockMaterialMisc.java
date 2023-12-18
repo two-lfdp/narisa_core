@@ -13,9 +13,9 @@ import net.minecraft.util.NonNullList;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 
-public class NCBlockMaterialMisc extends NCBlockMulti {
+public class NCBlockMaterialMisc extends INCBlockMulti.Impl {
     public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.create("type", EnumType.class);
-
+    private static final EnumType[] TYPE_VALUES = EnumType.values();
 
     public NCBlockMaterialMisc(){
         super(Material.IRON);
@@ -28,8 +28,8 @@ public class NCBlockMaterialMisc extends NCBlockMulti {
         setSoundType(SoundType.STONE);
         setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, EnumType.SULFUR));
 
-        for(int i = 0 ; i < EnumType.values().length ; i++){
-            EnumType current = EnumType.values()[i];
+        for(int i = 0 ; i < TYPE_VALUES.length ; i++){
+            EnumType current = TYPE_VALUES[i];
             setHarvestLevel("pickaxe", current.getBlockLevel(), getStateFromMeta(current.ordinal()));
         }
     }
@@ -41,7 +41,7 @@ public class NCBlockMaterialMisc extends NCBlockMulti {
 
     @Override
     public IBlockState getStateFromMeta(int meta){
-        return this.getDefaultState().withProperty(VARIANT, EnumType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, TYPE_VALUES[meta]);
     }
 
     @Override
@@ -50,15 +50,20 @@ public class NCBlockMaterialMisc extends NCBlockMulti {
     }
 
     @Override
+    public int damageDropped(IBlockState state){
+        return getMetaFromState(state);
+    }
+
+    @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-        for (int i = 0; i < EnumType.values().length; i++) {
+        for (int i = 0; i < TYPE_VALUES.length; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }
 
     @Override
     protected String getMetaName(int meta){
-        return EnumType.values()[meta].getLowerName();
+        return TYPE_VALUES[meta].getLowerName();
     }
 
     public void registerBlocks(IForgeRegistry<Block> registry){
@@ -91,13 +96,13 @@ public class NCBlockMaterialMisc extends NCBlockMulti {
             return blockLevel;
         }
 
-        public static EnumType[] getAdditionalType(){
-            return new EnumType[]{SULFUR, NITER};
-        }
-
         @Override
         public String getName() {
             return lowerName;
+        }
+
+        public static EnumType[] getAdditionalType(){
+            return new EnumType[]{SULFUR, NITER};
         }
     }
 }

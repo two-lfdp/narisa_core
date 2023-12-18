@@ -17,8 +17,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 
-public class NCBlockMaterialFuel extends NCBlockMulti {
+public class NCBlockMaterialFuel extends INCBlockMulti.Impl {
     public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.create("type", EnumType.class);
+    private static final EnumType[] TYPE_VALUES = EnumType.values();
 
     public NCBlockMaterialFuel(){
         super(Material.ROCK, MapColor.BLACK);
@@ -42,7 +43,7 @@ public class NCBlockMaterialFuel extends NCBlockMulti {
 
     @Override
     public IBlockState getStateFromMeta(int meta){
-        return this.getDefaultState().withProperty(VARIANT, EnumType.values()[meta]);
+        return this.getDefaultState().withProperty(VARIANT, TYPE_VALUES[meta]);
     }
 
     @Override
@@ -51,8 +52,13 @@ public class NCBlockMaterialFuel extends NCBlockMulti {
     }
 
     @Override
+    public int damageDropped(IBlockState state){
+        return getMetaFromState(state);
+    }
+
+    @Override
     public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
-        for (int i = 0; i < EnumType.values().length; i++) {
+        for (int i = 0; i < TYPE_VALUES.length; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }
@@ -69,7 +75,7 @@ public class NCBlockMaterialFuel extends NCBlockMulti {
 
     @Override
     protected String getMetaName(int meta){
-        return EnumType.values()[meta].getLowerName();
+        return TYPE_VALUES[meta].getLowerName();
     }
 
     public void registerBlocks(IForgeRegistry<Block> registry){

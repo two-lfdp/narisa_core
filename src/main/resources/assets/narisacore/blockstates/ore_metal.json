@@ -1,0 +1,20 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=copper": {
+      "model": "narisacore:ore/ore_copper"
+    },
+    "type=tin": {
+      "model": "narisacore:ore/ore_tin"
+    },
+    "type=aluminum": {
+      "model": "narisacore:ore/ore_aluminum"
+    },
+    "type=lead": {
+      "model": "narisacore:ore/ore_lead"
+    },
+    "type=silver": {
+      "model": "narisacore:ore/ore_silver"
+    }
+  }
+}

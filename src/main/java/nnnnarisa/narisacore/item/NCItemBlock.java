@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import nnnnarisa.narisacore.NarisaCore;
-import nnnnarisa.narisacore.block.NCBlockMulti;
+import nnnnarisa.narisacore.block.INCBlockMulti;
 
 public class NCItemBlock extends ItemBlock
 {
@@ -20,13 +20,16 @@ public class NCItemBlock extends ItemBlock
 
     @Override
     public int getMetadata(int damage){
-        return damage;
+        if(getHasSubtypes()){
+            return damage;
+        }
+        return 0;
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack){
-        if(block instanceof NCBlockMulti){
-            return ((NCBlockMulti)block).getUnlocalizedName(stack.getMetadata());
+        if(block instanceof INCBlockMulti){
+            return ((INCBlockMulti)block).getUnlocalizedName(stack.getMetadata());
         }
         return block.getUnlocalizedName();
     }
