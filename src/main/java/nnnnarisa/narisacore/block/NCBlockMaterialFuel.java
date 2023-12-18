@@ -37,7 +37,7 @@ public class NCBlockMaterialFuel extends INCBlockMulti.Impl {
     }
 
     @Override
-    protected BlockStateContainer createBlockState() {
+    protected BlockStateContainer createBlockState(){
         return new BlockStateContainer(this, VARIANT);
     }
 
@@ -57,19 +57,19 @@ public class NCBlockMaterialFuel extends INCBlockMulti.Impl {
     }
 
     @Override
-    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items) {
+    public void getSubBlocks(CreativeTabs tab, NonNullList<ItemStack> items){
         for (int i = 0; i < TYPE_VALUES.length; i++) {
             items.add(new ItemStack(this, 1, i));
         }
     }
 
     @Override
-    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face) {
+    public int getFireSpreadSpeed(IBlockAccess world, BlockPos pos, EnumFacing face){
         return 5;
     }
 
     @Override
-    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
+    public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face){
         return 5;
     }
 

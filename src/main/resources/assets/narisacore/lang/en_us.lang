@@ -49,3 +49,14 @@ tile.oreMetal.silver.name=Silver Ore
 tile.oreMisc.sulfur.name=Sulfur Ore
 tile.oreMisc.niter.name=Niter Ore
 tile.oreMisc.quartz.name=Overworld Quartz Ore
+tile.oreDense.iron.name=Dense Iron Ore
+tile.oreDense.gold.name=Dense Gold Ore
+tile.oreDense.copper.name=Dense Copper Ore
+tile.oreDense.tin.name=Dense Tin Ore
+tile.oreDense.aluminum.name=Dense Aluminum Ore
+tile.oreDense.lead.name=Dense Lead Ore
+tile.oreDense.silver.name=Dense Silver Ore
+tile.oreDense.sulfur.name=Dense Sulfur Ore
+tile.oreDense.niter.name=Dense Niter Ore
+tile.oreDense.quartz.name=Dense Overworld Quartz Ore
+

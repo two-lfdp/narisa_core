@@ -22,5 +22,4 @@ public interface INCBlockMulti {
 
         abstract protected String getMetaName(int meta);
     }
-
 }

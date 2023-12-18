@@ -14,44 +14,49 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
-import nnnnarisa.narisacore.block.NCBlockOreMisc;
-import nnnnarisa.narisacore.block.NCBlockOreMisc.EnumType;
+import nnnnarisa.narisacore.block.NCBlockOreDense;
+import nnnnarisa.narisacore.block.NCBlockOreDense.EnumType;
 import nnnnarisa.narisacore.init.NCItems;
 
-public class NCItemBlockOreMisc extends NCItemBlock{
-//    private static final EnumType[] VALUE_TYPE = EnumType.values();
-    private static final EnumType[] ADDITIONAL_TYPE = EnumType.getAdditionalType();
-
-    public NCItemBlockOreMisc(NCBlockOreMisc block){
+public class NCItemBlockOreDense extends NCItemBlock{
+    public NCItemBlockOreDense(NCBlockOreDense block){
         super(block, true);
 
-        setRegistryName(NarisaCore.MODID, "ore_misc");
+        setRegistryName(NarisaCore.MODID, "ore_dense");
     }
 
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
 
-        for(int i = 0; i < ADDITIONAL_TYPE.length ; i++){
-            OreDictionary.registerOre("ore" + ADDITIONAL_TYPE[i].getHeadCapitalName(),
+        for(int i = 0; i < EnumType.getAdditionalType().length ; i++){
+            OreDictionary.registerOre("oreDense" + EnumType.getAdditionalType()[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
         }
-        OreDictionary.registerOre("oreSaltpeter",
+        OreDictionary.registerOre("oreDenseSaltpeter",
                 new ItemStack(this, 1, EnumType.NITER.ordinal()));
     }
 
     public void registerSmeltingRecipes(){
-        /*
-        for(int i = 0 ; i < VALUE_TYPE.length ; i++){
-            GameRegistry.addSmelting(new ItemStack(this, 1, i),
-                    new ItemStack(, 1, VALUE_TYPE[i].getItemMeta()), 0.1f);
-        }
-        */
         GameRegistry.addSmelting(new ItemStack(this, 1, 0),
-                new ItemStack(NCItems.DUST, 1, 0), 0.1f);
+                new ItemStack(Items.IRON_INGOT, 2, 0), 1.4f);
         GameRegistry.addSmelting(new ItemStack(this, 1, 1),
-                new ItemStack(NCItems.DUST, 1, 1), 0.1f);
+                new ItemStack(Items.GOLD_INGOT, 2, 0), 2.0f);
         GameRegistry.addSmelting(new ItemStack(this, 1, 2),
-                new ItemStack(Items.QUARTZ, 1, 0), 0.2f);
+                new ItemStack(NCItems.INGOT, 2, 0), 1.4f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 3),
+                new ItemStack(NCItems.INGOT, 2, 1), 1.4f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 4),
+                new ItemStack(NCItems.INGOT, 2, 2), 1.4f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 5),
+                new ItemStack(NCItems.INGOT, 2, 3), 1.4f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 6),
+                new ItemStack(NCItems.INGOT, 2, 4), 1.4f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 7),
+                new ItemStack(NCItems.DUST, 2, 0), 0.2f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 8),
+                new ItemStack(NCItems.DUST, 2, 1), 0.2f);
+        GameRegistry.addSmelting(new ItemStack(this, 1, 9),
+                new ItemStack(Items.QUARTZ, 2, 0), 0.4f);
     }
 
     @SideOnly(Side.CLIENT)
@@ -61,7 +66,7 @@ public class NCItemBlockOreMisc extends NCItemBlock{
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            "ore/ore_" + EnumType.values()[i].getLowerName()),
+                            "ore/dense/ore_dense_" + EnumType.values()[i].getLowerName()),
                     "inventory");
         }
 

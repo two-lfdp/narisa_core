@@ -1,6 +1,5 @@
 package nnnnarisa.narisacore.block;
 
-import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -9,6 +8,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,17 +20,20 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
+import nnnnarisa.narisacore.init.NCBlocks;
 import nnnnarisa.narisacore.init.NCItems;
 
-public class NCBlockOreMisc extends INCBlockMulti.Impl {
+import java.util.Random;
+
+public class NCBlockOreDense extends INCBlockMulti.Impl {
     public static final PropertyEnum<EnumType> VARIANT = PropertyEnum.create("type", EnumType.class);
     private static final EnumType[] TYPE_VALUES = EnumType.values();
 
-    public NCBlockOreMisc(){
+    public NCBlockOreDense(){
         super(Material.IRON);
 
-        setUnlocalizedName("oreMisc");
-        setRegistryName(NarisaCore.MODID, "ore_misc");
+        setUnlocalizedName("oreDense");
+        setRegistryName(NarisaCore.MODID, "ore_dense");
         setCreativeTab(NarisaCore.TAB_NARISACORE);
 
         setHardness(0.8F);
@@ -72,24 +75,29 @@ public class NCBlockOreMisc extends INCBlockMulti.Impl {
     public int quantityDroppedWithBonus(int fortune, Random random){
         if (fortune > 0)
         {
-            int i = random.nextInt(fortune + 2) - 1;
-
-            if (i < 0)
-            {
-                i = 0;
-            }
-
-            return (i + 1);
+            return (random.nextInt(fortune * 2) + 2);
         }
-        return 1;
+        return 2;
     }
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune){
-        if(state.getValue(VARIANT) == EnumType.QUARTZ){
-            return Items.QUARTZ;
+        switch(state.getValue(VARIANT)){
+            case IRON:
+                return Item.getItemFromBlock(Blocks.IRON_ORE);
+            case GOLD:
+                return Item.getItemFromBlock(Blocks.GOLD_ORE);
+            case COPPER:
+            case TIN:
+            case ALUMINUM:
+            case LEAD:
+            case SILVER:
+                return NCBlocks.ITEM_ORE_METAL;
+            case SULFUR:
+            case NITER:
+                return NCItems.DUST;
         }
-        return NCItems.DUST;
+        return Items.QUARTZ;
     }
 
     @Override
@@ -111,11 +119,7 @@ public class NCBlockOreMisc extends INCBlockMulti.Impl {
     public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune){
         Random rand = world instanceof World ? ((World)world).rand : new Random();
 
-        if (state.getValue(VARIANT) == EnumType.QUARTZ)
-        {
-            return MathHelper.getInt(rand, 2, 5);
-        }
-        return MathHelper.getInt(rand, 0, 2);
+        return state.getValue(VARIANT).getRandomExpValue(rand);
     }
 
     @Override
@@ -135,9 +139,31 @@ public class NCBlockOreMisc extends INCBlockMulti.Impl {
     }
 
     public enum EnumType implements IStringSerializable{
-        SULFUR("sulfur", "Sulfur", 1, 0),
-        NITER("niter", "Niter", 1, 1),
-        QUARTZ("quartz", "Quartz", 0, 0);
+        IRON("iron", "Iron", 1, 0),
+        GOLD("gold", "Gold", 2, 0),
+        COPPER("copper", "Copper", 1, 0),
+        TIN("tin", "Tin", 1, 1),
+        ALUMINUM("aluminum", "Aluminum", 1, 2),
+        LEAD("lead", "Lead", 2, 3),
+        SILVER("silver", "Silver", 2, 4),
+        SULFUR("sulfur", "Sulfur", 1, 0){
+            @Override
+            public int getRandomExpValue(Random rand){
+                return MathHelper.getInt(rand, 0, 2);
+            }
+        },
+        NITER("niter", "Niter", 1, 1){
+            @Override
+            public int getRandomExpValue(Random rand){
+                return MathHelper.getInt(rand, 0, 2);
+            }
+        },
+        QUARTZ("quartz", "Quartz", 0, 0){
+            @Override
+            public int getRandomExpValue(Random rand){
+                return MathHelper.getInt(rand, 2, 5);
+            }
+        };
 
         private final String lowerName, headCapitalName;
         private final int blockLevel, itemMeta;
@@ -163,6 +189,10 @@ public class NCBlockOreMisc extends INCBlockMulti.Impl {
 
         public int getItemMeta() {
             return itemMeta;
+        }
+
+        public int getRandomExpValue(Random rand){
+            return 0;
         }
 
         @Override

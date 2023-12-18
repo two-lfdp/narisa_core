@@ -1,0 +1,35 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=iron": {
+      "model": "narisacore:ore/dense/ore_dense_iron"
+    },
+    "type=gold": {
+      "model": "narisacore:ore/dense/ore_dense_gold"
+    },
+    "type=copper": {
+      "model": "narisacore:ore/dense/ore_dense_copper"
+    },
+    "type=tin": {
+      "model": "narisacore:ore/dense/ore_dense_tin"
+    },
+    "type=aluminum": {
+      "model": "narisacore:ore/dense/ore_dense_aluminum"
+    },
+    "type=lead": {
+      "model": "narisacore:ore/dense/ore_dense_lead"
+    },
+    "type=silver": {
+      "model": "narisacore:ore/dense/ore_dense_silver"
+    },
+    "type=sulfur": {
+      "model": "narisacore:ore/dense/ore_dense_sulfur"
+    },
+    "type=niter": {
+      "model": "narisacore:ore/dense/ore_dense_niter"
+    },
+    "type=quartz": {
+      "model": "narisacore:ore/dense/ore_dense_quartz_overworld"
+    }
+  }
+}
