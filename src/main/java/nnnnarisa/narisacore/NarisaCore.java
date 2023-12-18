@@ -9,6 +9,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLConstructionEvent;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -19,7 +20,7 @@ import nnnnarisa.narisacore.init.NCItems;
 public class NarisaCore {
     public static final String MODID = "narisacore";
     public static final String NAME = "NarisaCore";
-    public static final String VERSION = "0.6.1";
+    public static final String VERSION = "0.7.0";
 
     public static final CreativeTabs TAB_NARISACORE = new CreativeTabNarisaCore();
 
@@ -29,14 +30,14 @@ public class NarisaCore {
     }
 
     @SubscribeEvent
-    public void registerItems(RegistryEvent.Register<Item> event) {
-        NCItems.registerItems(event.getRegistry());
-        NCBlocks.registerBlockItems(event.getRegistry());
+    public void registerBlocks(RegistryEvent.Register<Block> event) {
+        NCBlocks.registerBlocks(event.getRegistry());
     }
 
     @SubscribeEvent
-    public void registerBlocks(RegistryEvent.Register<Block> event) {
-        NCBlocks.registerBlocks(event.getRegistry());
+    public void registerItems(RegistryEvent.Register<Item> event) {
+        NCItems.registerItems(event.getRegistry());
+        NCBlocks.registerBlockItems(event.getRegistry());
     }
 
     @SubscribeEvent
@@ -44,5 +45,10 @@ public class NarisaCore {
     public void registerModels(ModelRegistryEvent event) {
         NCItems.registerModels(event);
         NCBlocks.registerModels(event);
+    }
+
+    @EventHandler
+    public void init(FMLInitializationEvent event){
+        NCBlocks.registerSmeltingRecipes();
     }
 }

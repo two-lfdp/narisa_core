@@ -9,12 +9,14 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.block.NCBlockOreMetal;
+import nnnnarisa.narisacore.init.NCItems;
 import nnnnarisa.narisacore.util.EnumMetalType;
 
 public class NCItemBlockOreMetal extends NCItemBlock{
@@ -32,6 +34,13 @@ public class NCItemBlockOreMetal extends NCItemBlock{
         for(int i = 0; i < TYPE_SIMPLE.length ; i++){
             OreDictionary.registerOre("ore" + TYPE_SIMPLE[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
+        }
+    }
+
+    public void registerSmeltingRecipes(){
+        for(int i = 0; i < TYPE_SIMPLE.length ; i++){
+            GameRegistry.addSmelting(new ItemStack(this, 1, i),
+                    new ItemStack(NCItems.INGOT, 1, i), 1.0f);
         }
     }
 
