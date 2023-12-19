@@ -20,7 +20,7 @@ import nnnnarisa.narisacore.init.NCItems;
 public class NarisaCore {
     public static final String MODID = "narisacore";
     public static final String NAME = "NarisaCore";
-    public static final String VERSION = "0.9.2";
+    public static final String VERSION = "0.9.3";
 
     public static final CreativeTabs TAB_NARISACORE = new CreativeTabNarisaCore();
 

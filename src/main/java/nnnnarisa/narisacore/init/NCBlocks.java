@@ -20,6 +20,7 @@ public class NCBlocks {
     public static final NCBlockDecorativeLapis LAPIS_DECO = new NCBlockDecorativeLapis();
     public static final NCBlockLapisSlab LAPIS_SLAB_HALF = new NCBlockLapisSlab.Half();
     public static final NCBlockLapisSlab LAPIS_SLAB_DOUBLE = new NCBlockLapisSlab.Double();
+    public static final NCBlockLapisStairs LAPIS_STAIRS = new NCBlockLapisStairs(LAPIS_DECO);
     public static final NCItemBlockMaterialMetal ITEM_STORAGE_METAL = new NCItemBlockMaterialMetal(STORAGE_METAL);
     public static final NCItemBlockMaterialFuel ITEM_STORAGE_FUEL = new NCItemBlockMaterialFuel(STORAGE_FUEL);
     public static final NCItemBlockMaterialMisc ITEM_STORAGE_MISC = new NCItemBlockMaterialMisc(STORAGE_MISC);
@@ -28,6 +29,7 @@ public class NCBlocks {
     public static final NCItemBlockOreDense ITEM_ORE_DENSE = new NCItemBlockOreDense(ORE_DENSE);
     public static final NCItemBlockDecorativeLapis ITEM_LAPIS_DECO = new NCItemBlockDecorativeLapis(LAPIS_DECO);
     public static final NCItemBlockLapisSlab ITEM_LAPIS_SLAB = new NCItemBlockLapisSlab(LAPIS_SLAB_HALF, LAPIS_SLAB_DOUBLE);
+    public static final NCItemBlockLapisStairs ITEM_LAPIS_STAIRS = new NCItemBlockLapisStairs(LAPIS_STAIRS);
 
     public static void registerBlocks(IForgeRegistry<Block> registry){
         STORAGE_METAL.registerBlocks(registry);
@@ -39,6 +41,7 @@ public class NCBlocks {
         LAPIS_DECO.registerBlocks(registry);
         LAPIS_SLAB_HALF.registerBlocks(registry);
         LAPIS_SLAB_DOUBLE.registerBlocks(registry);
+        LAPIS_STAIRS.registerBlocks(registry);
     }
 
     public static void registerBlockItems(IForgeRegistry<Item> registry){
@@ -50,6 +53,7 @@ public class NCBlocks {
         ITEM_ORE_DENSE.registerItems(registry);
         ITEM_LAPIS_DECO.registerItems(registry);
         ITEM_LAPIS_SLAB.registerItems(registry);
+        ITEM_LAPIS_STAIRS.registerItems(registry);
     }
 
     @SideOnly(Side.CLIENT)
@@ -62,6 +66,7 @@ public class NCBlocks {
         ITEM_ORE_DENSE.registerModels(event);
         ITEM_LAPIS_DECO.registerModels(event);
         ITEM_LAPIS_SLAB.registerModels(event);
+        ITEM_LAPIS_STAIRS.registerModels(event);
     }
 
     public static void registerSmeltingRecipes(){
