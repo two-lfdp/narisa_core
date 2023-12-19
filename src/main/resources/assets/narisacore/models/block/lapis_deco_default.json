@@ -1,0 +1,8 @@
+{
+    "parent": "block/cube_bottom_top",
+    "textures": {
+        "bottom": "narisacore:blocks/metal/block_lapis_bottom",
+        "top": "narisacore:blocks/metal/block_lapis_top",
+        "side": "narisacore:blocks/metal/block_lapis_side"
+    }
+}

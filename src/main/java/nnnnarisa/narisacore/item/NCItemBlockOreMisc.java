@@ -19,7 +19,6 @@ import nnnnarisa.narisacore.block.NCBlockOreMisc.EnumType;
 import nnnnarisa.narisacore.init.NCItems;
 
 public class NCItemBlockOreMisc extends NCItemBlock{
-//    private static final EnumType[] VALUE_TYPE = EnumType.values();
     private static final EnumType[] ADDITIONAL_TYPE = EnumType.getAdditionalType();
 
     public NCItemBlockOreMisc(NCBlockOreMisc block){
@@ -40,12 +39,6 @@ public class NCItemBlockOreMisc extends NCItemBlock{
     }
 
     public void registerSmeltingRecipes(){
-        /*
-        for(int i = 0 ; i < VALUE_TYPE.length ; i++){
-            GameRegistry.addSmelting(new ItemStack(this, 1, i),
-                    new ItemStack(, 1, VALUE_TYPE[i].getItemMeta()), 0.1f);
-        }
-        */
         GameRegistry.addSmelting(new ItemStack(this, 1, 0),
                 new ItemStack(NCItems.DUST, 1, 0), 0.1f);
         GameRegistry.addSmelting(new ItemStack(this, 1, 1),

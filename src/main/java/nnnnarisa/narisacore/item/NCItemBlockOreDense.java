@@ -19,6 +19,8 @@ import nnnnarisa.narisacore.block.NCBlockOreDense.EnumType;
 import nnnnarisa.narisacore.init.NCItems;
 
 public class NCItemBlockOreDense extends NCItemBlock{
+    private static final EnumType[] VALUE_TYPE = EnumType.values();
+
     public NCItemBlockOreDense(NCBlockOreDense block){
         super(block, true);
 
@@ -28,8 +30,8 @@ public class NCItemBlockOreDense extends NCItemBlock{
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
 
-        for(int i = 0; i < EnumType.getAdditionalType().length ; i++){
-            OreDictionary.registerOre("oreDense" + EnumType.getAdditionalType()[i].getHeadCapitalName(),
+        for(int i = 0; i < VALUE_TYPE.length ; i++){
+            OreDictionary.registerOre("oreDense" + VALUE_TYPE[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
         }
         OreDictionary.registerOre("oreDenseSaltpeter",
@@ -61,12 +63,12 @@ public class NCItemBlockOreDense extends NCItemBlock{
 
     @SideOnly(Side.CLIENT)
     public void registerModels(ModelRegistryEvent event){
-        ModelResourceLocation[] models = new ModelResourceLocation[EnumType.values().length];
+        ModelResourceLocation[] models = new ModelResourceLocation[VALUE_TYPE.length];
 
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            "ore/dense/ore_dense_" + EnumType.values()[i].getLowerName()),
+                            "ore/dense/ore_dense_" + VALUE_TYPE[i].getLowerName()),
                     "inventory");
         }
 

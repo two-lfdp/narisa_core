@@ -59,3 +59,6 @@ tile.oreDense.silver.name=高密度銀鉱石
 tile.oreDense.sulfur.name=高密度硫黄鉱石
 tile.oreDense.niter.name=高密度硝石鉱石
 tile.oreDense.quartz.name=高密度地上クォーツブロック
+tile.lapisDeco.default.name=装飾ラピスラズリブロック
+tile.lapisDeco.chiseled.name=模様入りラピスラズリブロック
+tile.lapisDeco.lines.name=ラピスラズリの柱

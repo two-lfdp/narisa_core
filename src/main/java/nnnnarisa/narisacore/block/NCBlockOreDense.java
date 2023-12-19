@@ -199,9 +199,5 @@ public class NCBlockOreDense extends INCBlockMulti.Impl {
         public String getName() {
             return lowerName;
         }
-
-        public static EnumType[] getAdditionalType(){
-            return new EnumType[]{SULFUR, NITER};
-        }
     }
 }

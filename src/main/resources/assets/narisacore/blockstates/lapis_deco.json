@@ -1,0 +1,23 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "variant=default": {
+      "model": "narisacore:lapis_deco_default"
+    },
+    "variant=chiseled": {
+      "model": "narisacore:lapis_deco_chiseled"
+    },
+    "variant=lines_y": {
+      "model": "narisacore:lapis_deco_column"
+    },
+    "variant=lines_x": {
+      "model": "narisacore:lapis_deco_column",
+      "x": 90,
+      "y": 90
+    },
+    "variant=lines_z": {
+      "model": "narisacore:lapis_deco_column",
+      "x": 90
+    }
+  }
+}

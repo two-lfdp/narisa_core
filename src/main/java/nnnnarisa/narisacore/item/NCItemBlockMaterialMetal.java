@@ -16,6 +16,8 @@ import nnnnarisa.narisacore.block.NCBlockMaterialMetal;
 import nnnnarisa.narisacore.util.EnumMetalType;
 
 public class NCItemBlockMaterialMetal extends NCItemBlock{
+    private static final EnumMetalType[] VALUE_TYPE = EnumMetalType.values();
+
     public NCItemBlockMaterialMetal(NCBlockMaterialMetal block){
         super(block, true);
 
@@ -25,20 +27,20 @@ public class NCItemBlockMaterialMetal extends NCItemBlock{
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
 
-        for(int i = 0; i < EnumMetalType.values().length ; i++){
-            OreDictionary.registerOre("block" + EnumMetalType.values()[i].getHeadCapitalName(),
+        for(int i = 0; i < VALUE_TYPE.length ; i++){
+            OreDictionary.registerOre("block" + VALUE_TYPE[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
         }
     }
 
     @SideOnly(Side.CLIENT)
     public void registerModels(ModelRegistryEvent event){
-        ModelResourceLocation[] models = new ModelResourceLocation[EnumMetalType.values().length];
+        ModelResourceLocation[] models = new ModelResourceLocation[VALUE_TYPE.length];
 
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            "storage/storage_" + EnumMetalType.values()[i].getLowerName()),
+                            "storage/storage_" + VALUE_TYPE[i].getLowerName()),
                     "inventory");
         }
 

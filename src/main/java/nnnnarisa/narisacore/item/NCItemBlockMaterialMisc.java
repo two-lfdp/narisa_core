@@ -16,6 +16,9 @@ import nnnnarisa.narisacore.block.NCBlockMaterialMisc;
 import nnnnarisa.narisacore.block.NCBlockMaterialMisc.EnumType;
 
 public class NCItemBlockMaterialMisc extends NCItemBlock{
+    private static final EnumType[] VALUE_TYPE = EnumType.values();
+    private static final EnumType[] ADDITIONAL_TYPE = EnumType.getAdditionalType();
+
     public NCItemBlockMaterialMisc(NCBlockMaterialMisc block){
         super(block, true);
 
@@ -25,8 +28,8 @@ public class NCItemBlockMaterialMisc extends NCItemBlock{
     public void registerItems(IForgeRegistry<Item> registry){
         registry.register(this);
 
-        for(int i = 0; i < EnumType.getAdditionalType().length ; i++){
-            OreDictionary.registerOre("block" + EnumType.getAdditionalType()[i].getHeadCapitalName(),
+        for(int i = 0; i < ADDITIONAL_TYPE.length ; i++){
+            OreDictionary.registerOre("block" + ADDITIONAL_TYPE[i].getHeadCapitalName(),
                     new ItemStack(this, 1, i));
         }
         OreDictionary.registerOre("blockSaltpeter",
@@ -35,12 +38,12 @@ public class NCItemBlockMaterialMisc extends NCItemBlock{
 
     @SideOnly(Side.CLIENT)
     public void registerModels(ModelRegistryEvent event){
-        ModelResourceLocation[] models = new ModelResourceLocation[EnumType.values().length];
+        ModelResourceLocation[] models = new ModelResourceLocation[VALUE_TYPE.length];
 
         for(int i = 0 ; i < models.length ; i++){
             models[i] = new ModelResourceLocation(
                     new ResourceLocation(NarisaCore.MODID,
-                            "storage/storage_" + EnumType.values()[i].getLowerName()),
+                            "storage/storage_" + VALUE_TYPE[i].getLowerName()),
                     "inventory");
         }
 

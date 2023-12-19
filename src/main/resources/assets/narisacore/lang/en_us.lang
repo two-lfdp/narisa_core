@@ -59,4 +59,6 @@ tile.oreDense.silver.name=Dense Silver Ore
 tile.oreDense.sulfur.name=Dense Sulfur Ore
 tile.oreDense.niter.name=Dense Niter Ore
 tile.oreDense.quartz.name=Dense Overworld Quartz Ore
-
+tile.lapisDeco.default.name=Decorative Lapis Lazuli Block
+tile.lapisDeco.chiseled.name=Chiseled Lapis Lazuli Block
+tile.lapisDeco.lines.name=Lapis Lazuli Pillar
