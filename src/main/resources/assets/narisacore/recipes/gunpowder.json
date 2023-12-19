@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "narisacore:dust",
+            "data": 0
+        },
+        {
+            "item": "narisacore:dust",
+            "data": 1
+        },
+        {
+            "item": "narisacore:dust",
+            "data": 1
+        },
+        {
+            "item": "minecraft:coal",
+            "data": 32767
+        }
+    ],
+    "result": {
+        "item": "minecraft:gunpowder"
+    }
+}
