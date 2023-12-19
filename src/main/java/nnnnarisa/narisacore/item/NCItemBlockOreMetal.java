@@ -2,10 +2,8 @@ package nnnnarisa.narisacore.item;
 
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -19,7 +17,7 @@ import nnnnarisa.narisacore.block.NCBlockOreMetal;
 import nnnnarisa.narisacore.init.NCItems;
 import nnnnarisa.narisacore.util.EnumMetalType;
 
-public class NCItemBlockOreMetal extends NCItemBlock{
+public class NCItemBlockOreMetal extends NCItemBlockGeneral {
     private static final EnumMetalType[] TYPE_SIMPLE = EnumMetalType.getSimpleMetal();
 
     public NCItemBlockOreMetal(NCBlockOreMetal block){

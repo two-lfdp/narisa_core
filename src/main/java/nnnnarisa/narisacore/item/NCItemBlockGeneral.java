@@ -6,9 +6,8 @@ import net.minecraft.item.ItemStack;
 import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.block.INCBlockMulti;
 
-public class NCItemBlock extends ItemBlock
-{
-    public NCItemBlock(Block block, boolean hasSubtypes){
+public class NCItemBlockGeneral extends ItemBlock{
+    public NCItemBlockGeneral(Block block, boolean hasSubtypes){
         super(block);
 
         if(hasSubtypes){

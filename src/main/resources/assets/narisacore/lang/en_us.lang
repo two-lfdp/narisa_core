@@ -62,3 +62,5 @@ tile.oreDense.quartz.name=Dense Overworld Quartz Ore
 tile.lapisDeco.default.name=Decorative Lapis Lazuli Block
 tile.lapisDeco.chiseled.name=Chiseled Lapis Lazuli Block
 tile.lapisDeco.lines.name=Lapis Lazuli Pillar
+tile.lapisSlabHalf.name=Decorative Lapis Lazuli Slab
+tile.lapisSlabDouble.name=Double Lapis Lazuli Slab

@@ -1,5 +1,5 @@
 {
-  "parent": "block/cube_bottom_top",
+  "parent": "block/half_slab",
   "textures": {
     "bottom": "narisacore:blocks/metal/block_lapis_bottom",
     "top": "narisacore:blocks/metal/block_lapis_top",

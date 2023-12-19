@@ -1,7 +1,7 @@
 {
-    "parent": "block/cube_column",
-    "textures": {
-        "end": "narisacore:blocks/metal/block_lapis_lines_top",
-        "side": "narisacore:blocks/metal/block_lapis_lines"
-    }
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "narisacore:blocks/metal/block_lapis_lines_top",
+    "side": "narisacore:blocks/metal/block_lapis_lines"
+  }
 }

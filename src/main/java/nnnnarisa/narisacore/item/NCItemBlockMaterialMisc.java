@@ -15,7 +15,7 @@ import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.block.NCBlockMaterialMisc;
 import nnnnarisa.narisacore.block.NCBlockMaterialMisc.EnumType;
 
-public class NCItemBlockMaterialMisc extends NCItemBlock{
+public class NCItemBlockMaterialMisc extends NCItemBlockGeneral {
     private static final EnumType[] VALUE_TYPE = EnumType.values();
     private static final EnumType[] ADDITIONAL_TYPE = EnumType.getAdditionalType();
 

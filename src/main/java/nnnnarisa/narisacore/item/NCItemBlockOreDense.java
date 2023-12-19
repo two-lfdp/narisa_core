@@ -18,7 +18,7 @@ import nnnnarisa.narisacore.block.NCBlockOreDense;
 import nnnnarisa.narisacore.block.NCBlockOreDense.EnumType;
 import nnnnarisa.narisacore.init.NCItems;
 
-public class NCItemBlockOreDense extends NCItemBlock{
+public class NCItemBlockOreDense extends NCItemBlockGeneral {
     private static final EnumType[] VALUE_TYPE = EnumType.values();
 
     public NCItemBlockOreDense(NCBlockOreDense block){

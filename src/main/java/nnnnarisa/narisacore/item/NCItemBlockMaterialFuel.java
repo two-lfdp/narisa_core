@@ -15,7 +15,7 @@ import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.block.NCBlockMaterialFuel;
 import nnnnarisa.narisacore.block.NCBlockMaterialFuel.EnumType;
 
-public class NCItemBlockMaterialFuel extends NCItemBlock{
+public class NCItemBlockMaterialFuel extends NCItemBlockGeneral {
     private static final EnumType[] VALUE_TYPE = EnumType.values();
 
     public NCItemBlockMaterialFuel(NCBlockMaterialFuel block){

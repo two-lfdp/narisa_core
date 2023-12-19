@@ -27,7 +27,7 @@ public class NCBlockDecorativeLapis extends BlockQuartz implements INCBlockMulti
 
     @Override
     public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos){
-        return MapColor.BLUE;
+        return MapColor.LAPIS;
     }
 
     @Override

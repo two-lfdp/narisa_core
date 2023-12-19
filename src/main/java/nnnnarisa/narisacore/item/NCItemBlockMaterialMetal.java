@@ -15,7 +15,7 @@ import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.block.NCBlockMaterialMetal;
 import nnnnarisa.narisacore.util.EnumMetalType;
 
-public class NCItemBlockMaterialMetal extends NCItemBlock{
+public class NCItemBlockMaterialMetal extends NCItemBlockGeneral {
     private static final EnumMetalType[] VALUE_TYPE = EnumMetalType.values();
 
     public NCItemBlockMaterialMetal(NCBlockMaterialMetal block){

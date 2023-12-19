@@ -4,7 +4,6 @@ import net.minecraft.block.BlockQuartz.EnumType;
 import net.minecraft.client.renderer.block.model.ModelBakery;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
@@ -14,7 +13,7 @@ import net.minecraftforge.registries.IForgeRegistry;
 import nnnnarisa.narisacore.NarisaCore;
 import nnnnarisa.narisacore.block.NCBlockDecorativeLapis;
 
-public class NCItemBlockDecorativeLapis extends NCItemBlock{
+public class NCItemBlockDecorativeLapis extends NCItemBlockGeneral {
     private static final EnumType[] ITEM_TYPE = {EnumType.DEFAULT, EnumType.CHISELED, EnumType.LINES_Y};
 
     public NCItemBlockDecorativeLapis(NCBlockDecorativeLapis block){

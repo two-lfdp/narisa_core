@@ -62,3 +62,5 @@ tile.oreDense.quartz.name=高密度地上クォーツブロック
 tile.lapisDeco.default.name=装飾ラピスラズリブロック
 tile.lapisDeco.chiseled.name=模様入りラピスラズリブロック
 tile.lapisDeco.lines.name=ラピスラズリの柱
+tile.lapisSlabHalf.name=装飾ラピスラズリハーフブロック
+tile.lapisSlabDouble.name=二重ラピスラズリハーフブロック

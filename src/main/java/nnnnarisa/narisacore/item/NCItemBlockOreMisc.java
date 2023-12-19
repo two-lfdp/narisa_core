@@ -18,7 +18,7 @@ import nnnnarisa.narisacore.block.NCBlockOreMisc;
 import nnnnarisa.narisacore.block.NCBlockOreMisc.EnumType;
 import nnnnarisa.narisacore.init.NCItems;
 
-public class NCItemBlockOreMisc extends NCItemBlock{
+public class NCItemBlockOreMisc extends NCItemBlockGeneral {
     private static final EnumType[] ADDITIONAL_TYPE = EnumType.getAdditionalType();
 
     public NCItemBlockOreMisc(NCBlockOreMisc block){
