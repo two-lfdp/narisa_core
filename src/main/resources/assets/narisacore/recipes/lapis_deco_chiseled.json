@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#",
+        "#"
+    ],
+    "key": {
+        "#": {
+            "item": "narisacore:lapis_slab",
+            "data": 0
+        }
+    },
+    "result": {
+        "item": "narisacore:lapis_deco",
+        "data": 1
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        "## ",
+        "###"
+    ],
+    "key": {
+        "#": [
+            {
+                "item": "narisacore:lapis_deco",
+                "data": 0
+            },
+            {
+                "item": "narisacore:lapis_deco",
+                "data": 1
+            },
+            {
+                "item": "narisacore:lapis_deco",
+                "data": 2
+            }
+        ]
+    },
+    "result": {
+        "item": "narisacore:lapis_stairs",
+        "count": 4
+    }
+}
