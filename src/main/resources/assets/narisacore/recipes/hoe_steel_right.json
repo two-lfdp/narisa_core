@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "XX",
+        "# ",
+        "# "
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:stick"
+        },
+        "X": {
+            "item": "narisacore:ingot",
+            "data": 8
+        }
+    },
+    "result": {
+        "item": "narisacore:hoe_steel"
+    }
+}
