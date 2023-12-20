@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "narisacore:items/alloy/tools/shovel_steel"
+  }
+}

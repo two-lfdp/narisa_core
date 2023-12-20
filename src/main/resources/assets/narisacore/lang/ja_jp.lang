@@ -25,6 +25,15 @@ item.nuggetSteel.name=鋼の塊
 item.coalCoke.name=石炭コークス
 item.dustSulfur.name=硫黄
 item.dustNiter.name=硝石
+item.pickaxeSteel.name=鋼のツルハシ
+item.shovelSteel.name=鋼のシャベル
+item.axeSteel.name=鋼の斧
+item.swordSteel.name=鋼の剣
+item.hoeSteel.name=鋼のクワ
+item.helmetSteel.name=鋼のヘルメット
+item.chestplateSteel.name=鋼のチェストプレート
+item.leggingsSteel.name=鋼のレギンス
+item.bootsSteel.name=鋼のブーツ
 
 #ブロック
 tile.storageMetal.copper.name=銅ブロック

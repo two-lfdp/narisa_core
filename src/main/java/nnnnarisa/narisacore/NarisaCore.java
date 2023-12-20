@@ -20,7 +20,7 @@ import nnnnarisa.narisacore.init.NCItems;
 public class NarisaCore {
     public static final String MODID = "narisacore";
     public static final String NAME = "NarisaCore";
-    public static final String VERSION = "0.10.1";
+    public static final String VERSION = "0.10.2";
 
     public static final CreativeTabs TAB_NARISACORE = new CreativeTabNarisaCore();
 
@@ -36,19 +36,20 @@ public class NarisaCore {
 
     @SubscribeEvent
     public void registerItems(RegistryEvent.Register<Item> event) {
-        NCItems.registerItems(event.getRegistry());
         NCBlocks.registerBlockItems(event.getRegistry());
+        NCItems.registerItems(event.getRegistry());
     }
 
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void registerModels(ModelRegistryEvent event) {
-        NCItems.registerModels(event);
         NCBlocks.registerModels(event);
+        NCItems.registerModels(event);
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event){
         NCBlocks.registerSmeltingRecipes();
+        NCItems.registerSmeltingRecipes();
     }
 }
