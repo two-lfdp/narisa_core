@@ -11,6 +11,8 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
+// TODO : Translate Japanese sentence into English
+
 public class NCWorldGenSpikes extends WorldGenerator{
     private final IBlockState blockState;
     private final Block base;
