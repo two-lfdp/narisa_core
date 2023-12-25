@@ -8,6 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
+import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import nnnnarisa.narisacore.world.gen.feature.*;
 
@@ -30,14 +31,24 @@ public class NCDebugWorldGen {
                 stone,
                 NCWorldGenSpikes.EnumSize.LARGE);
         // NCWorldGenMonolith
-        testGenerator4 = new NCWorldGenMonolith(2, 7);
+        testGenerator4 = new NCWorldGenMonolith(Blocks.GLOWSTONE.getDefaultState(),
+                2, 6);
     }
 
     @SubscribeEvent
     public void onPostBiomeDecorate(DecorateBiomeEvent.Post event){
-        //generateSpike(event);
-        generateMonolith(event);
+        generateSpike(event);
+        //generateMonolith(event);
     }
+
+    /*
+    @SubscribeEvent
+    public void onMapGenInit(InitMapGenEvent event){
+        if(event.getType() == InitMapGenEvent.EventType.SCATTERED_FEATURE){
+            event.setNewGen(new NCDebugDummyMapGen(68, 3, 20, "minecraft", "chests/simple_dungeon"));
+        }
+    }
+    // */
 
     private void generateSpike(DecorateBiomeEvent.Post event){
         Random rand = event.getRand();
@@ -61,9 +72,10 @@ public class NCDebugWorldGen {
         Random rand = event.getRand();
         ChunkPos chunkPos = event.getChunkPos();
         BlockPos pos = new BlockPos((chunkPos.x << 4) + rand.nextInt(16) + 8,
-                rand.nextInt(256 - 16 * 2) + 16, (chunkPos.z << 4) + rand.nextInt(16) + 8);
-        for(int i = 0 ; i < 10 ; i++){
-            int randVar = rand.nextInt(5);
+                rand.nextInt(256 - 16 * 2) + 16,
+                (chunkPos.z << 4) + rand.nextInt(16) + 8);
+        for(int i = 0 ; i < 4 ; i++){
+            int randVar = rand.nextInt(8);
             if(randVar == 0){
                 testGenerator4.generate(event.getWorld(), rand, pos);
             }

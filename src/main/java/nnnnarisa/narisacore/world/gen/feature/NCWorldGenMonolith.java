@@ -11,8 +11,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-// TODO : translate Japanese sentence into English
-
 public class NCWorldGenMonolith extends WorldGenerator{
     private final IBlockState blockState;
     private int min, max;

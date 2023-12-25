@@ -11,8 +11,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-// TODO : Translate Japanese sentence into English
-
 public class NCWorldGenSpikes extends WorldGenerator{
     private final IBlockState blockState;
     private final Block base;
@@ -29,32 +27,35 @@ public class NCWorldGenSpikes extends WorldGenerator{
     }
 
     public boolean generate(World worldIn, Random rand, BlockPos position){
-        // 一番下の地面測定
+        // Detect lowest Y-position
         int baseY = 256;
         if(size == EnumSize.SMALL){
-            // 小サイズ
+            // Small-sized
             for(int iz = -1 ; iz <= 1 ; iz++){
                 for(int ix = -1 ; ix <= 1 ; ix++){
                     if(MathHelper.abs(iz) + MathHelper.abs(ix) <= 1){
-                        baseY = Math.min(baseY, worldIn.getHeight(position.getX() + ix, position.getZ() + iz));
+                        BlockPos posDetection = new BlockPos(position.getX() + ix, 0, position.getZ() + iz);
+                        baseY = Math.min(baseY, worldIn.getTopSolidOrLiquidBlock(posDetection).getY());
                     }
                 }
             }
         }
         else if(size == EnumSize.MIDDLE){
-            // 中サイズ
+            // Middle-sized
             for(int iz = -1 ; iz <= 1 ; iz++){
                 for(int ix = -1 ; ix <= 1 ; ix++){
-                    baseY = Math.min(baseY, worldIn.getHeight(position.getX() + ix, position.getZ() + iz));
+                    BlockPos posDetection = new BlockPos(position.getX() + ix, 0, position.getZ() + iz);
+                    baseY = Math.min(baseY, worldIn.getTopSolidOrLiquidBlock(posDetection).getY());
                 }
             }
         }
         else{
-            // 大サイズ
+            // Large-sized
             for(int iz = -2 ; iz <= 2 ; iz++){
                 for(int ix = -2 ; ix <= 2 ; ix++){
                     if(MathHelper.abs(iz) + MathHelper.abs(ix) <= 2){
-                        baseY = Math.min(baseY, worldIn.getHeight(position.getX() + ix, position.getZ() + iz));
+                        BlockPos posDetection = new BlockPos(position.getX() + ix, 0, position.getZ() + iz);
+                        baseY = Math.min(baseY, worldIn.getTopSolidOrLiquidBlock(posDetection).getY());
                     }
                 }
             }
@@ -64,10 +65,10 @@ public class NCWorldGenSpikes extends WorldGenerator{
             return false;
         }
 
-        // 生成
-        // 地面より下
+        // Place blocks
+        // Replace dirt or grass blocks into specified blocks
         if(size == EnumSize.SMALL){
-            // 小サイズ
+            // Small-sized
             for(int iz = -1 ; iz <= 1 ; iz++){
                 for(int ix = -1 ; ix <= 1 ; ix++){
                     if(MathHelper.abs(iz) + MathHelper.abs(ix) <= 1){
@@ -77,7 +78,7 @@ public class NCWorldGenSpikes extends WorldGenerator{
             }
         }
         else if(size == EnumSize.MIDDLE){
-            // 中サイズ
+            // Middle-sized
             for(int iz = -1 ; iz <= 1 ; iz++){
                 for(int ix = -1 ; ix <= 1 ; ix++){
                     replaceUndergroundBlock(worldIn, position.getX() + ix, baseY, position.getZ() + iz);
@@ -85,7 +86,7 @@ public class NCWorldGenSpikes extends WorldGenerator{
             }
         }
         else{
-            // 大サイズ
+            // Large-sized
             for(int iz = -2 ; iz <= 2 ; iz++){
                 for(int ix = -2 ; ix <= 2 ; ix++){
                     if(MathHelper.abs(iz) + MathHelper.abs(ix) <= 2){
@@ -94,11 +95,11 @@ public class NCWorldGenSpikes extends WorldGenerator{
                 }
             }
         }
-        // 地面より上
+        // Place specified block from above the surface
         int currentY = baseY;
         BlockPos.MutableBlockPos tempPos = new BlockPos.MutableBlockPos();
         if(size == EnumSize.LARGE){
-            // 大サイズ
+            // Large-sized
             for(int iz = -2 ; iz <= 2 ; iz++){
                 for(int ix = -2 ; ix <= 2 ; ix++){
                     if(MathHelper.abs(iz) + MathHelper.abs(ix) <= 2){
@@ -112,7 +113,7 @@ public class NCWorldGenSpikes extends WorldGenerator{
             currentY += 4;
         }
         if(size == EnumSize.MIDDLE || size == EnumSize.LARGE){
-            // 中サイズ
+            // Middle-sized or more
             for(int iz = -1 ; iz <= 1 ; iz++){
                 for(int ix = -1 ; ix <= 1 ; ix++){
                     for (int iy = 0 ; iy < 3 ; iy++){
@@ -123,7 +124,7 @@ public class NCWorldGenSpikes extends WorldGenerator{
             }
             currentY += 3;
         }
-        // 小サイズ
+        // Every size
         for(int iz = -1 ; iz <= 1 ; iz++){
             for(int ix = -1 ; ix <= 1 ; ix++){
                 if(MathHelper.abs(iz) + MathHelper.abs(ix) <= 1){
@@ -143,15 +144,16 @@ public class NCWorldGenSpikes extends WorldGenerator{
 
     private void replaceUndergroundBlock(World worldIn, int x, int baseY, int z){
         BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(x, baseY, z);
-        // 確認地点が基礎の石じゃないと降下
+        // Move the marker down if marked block isn't specified base block
         while(pos.getY() >= 0 && worldIn.getBlockState(pos).getBlock() != base){
             pos.move(EnumFacing.DOWN);
         }
-        // 岩盤到達
+        // Reached void
         if(pos.getY() < 0){
             return;
         }
-        // 基礎の石に到達したのでその上のブロックから置換
+        // Reached specified base block
+        // Replace blocks above the base block into specified block
         pos.move(EnumFacing.UP);
         for( ; pos.getY() < baseY ; pos.move(EnumFacing.UP)){
             worldIn.setBlockState(pos, blockState, 2);

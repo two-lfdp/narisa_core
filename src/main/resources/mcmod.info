@@ -2,13 +2,13 @@
 {
   "modid": "narisacore",
   "name": "NarisaCore",
-  "description": "Nnnnasrisa's core Mod. Adds some items, blocks, structures, and others.",
+  "description": "Nnnnasrisa's core Mod.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Nnnnarisa"],
-  "credits": "The Forge and FML guys, for making this example",
+  "credits": "The Forge and FML guys",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
