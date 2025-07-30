@@ -15,6 +15,9 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import nnnnarisa.narisacore.init.*;
 
+import org.apache.logging.log4j.LogManager; // DEBUG
+import org.apache.logging.log4j.Logger; // DEBUG
+
 @Mod(modid = NarisaCore.MODID, name = NarisaCore.NAME, version = NarisaCore.VERSION)
 public class NarisaCore {
     public static final String MODID = "narisacore";
@@ -23,13 +26,15 @@ public class NarisaCore {
 
     public static final CreativeTabs TAB_NARISACORE = new CreativeTabNarisaCore();
 
-    //private static final NCDebugWorldGen WORLDGEN = new NCDebugWorldGen(); // DEBUG
+    private static final NCDebugWorldGen WORLDGEN = new NCDebugWorldGen(); // DEBUG
+
+    public static final Logger LOGGER = LogManager.getLogger(); // DEBUG
 
     @EventHandler
     public void construct(FMLConstructionEvent event) {
         MinecraftForge.EVENT_BUS.register(this);
         //MinecraftForge.EVENT_BUS.register(WORLDGEN); // DEBUG
-        //MinecraftForge.TERRAIN_GEN_BUS.register(WORLDGEN); // DEBUG
+        MinecraftForge.TERRAIN_GEN_BUS.register(WORLDGEN); // DEBUG
     }
 
     @SubscribeEvent
@@ -56,6 +61,6 @@ public class NarisaCore {
         NCItems.registerSmeltingRecipes();
         NCStructures.registerStructures();
 
-        //WORLDGEN.init(); // DEBUG
+        WORLDGEN.init(); // DEBUG
     }
 }

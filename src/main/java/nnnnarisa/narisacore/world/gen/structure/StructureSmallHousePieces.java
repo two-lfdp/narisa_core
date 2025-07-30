@@ -32,6 +32,8 @@ public class StructureSmallHousePieces {
 
         private String namespace, location;
         private boolean placedChest1, placedChest2;
+        private boolean isFloating;
+        private String blockGenName;
 
         public House(){}
 
@@ -41,6 +43,8 @@ public class StructureSmallHousePieces {
             tagCompound.setString("location", this.location);
             tagCompound.setBoolean("placedChest1", this.placedChest1);
             tagCompound.setBoolean("placedChest2", this.placedChest2);
+            tagCompound.setBoolean("isFloating", this.isFloating);
+            tagCompound.setString("blockGenName", this.blockGenName);
         }
 
         @Override
@@ -49,9 +53,13 @@ public class StructureSmallHousePieces {
             this.location = tagCompound.getString("location");
             this.placedChest1 = tagCompound.getBoolean("placedChest1");
             this.placedChest2 = tagCompound.getBoolean("placedChest2");
+            this.isFloating = tagCompound.getBoolean("isFloating");
+            this.blockGenName = tagCompound.getString("blockGenName");
         }
 
-        public House(Random rand, int x, int fixedHeight, int z, String namespace, String location){
+        public House(Random rand, int x, int fixedHeight, int z,
+                     String namespace, String location,
+                     boolean isFloating, String blockGenName){
             super(0);
 
             // Initialize variables
@@ -59,6 +67,8 @@ public class StructureSmallHousePieces {
             this.location = location;
             this.placedChest1 = false;
             this.placedChest2 = false;
+            this.isFloating = isFloating;
+            this.blockGenName = blockGenName;
 
             // Randomize facing of the house
             this.setCoordBaseMode(EnumFacing.Plane.HORIZONTAL.random(rand));
@@ -76,6 +86,9 @@ public class StructureSmallHousePieces {
 
         @Override
         public boolean addComponentParts(World worldIn, Random randomIn, StructureBoundingBox structureBoundingBoxIn){
+            INCBlockGenSmallHouse blockGen = NCMapGenSmallHouse.getBlockGen(this.blockGenName);
+            blockGen.setSeed(randomIn.nextLong());
+
             // Fill with air as space
             for(int i = 0 ; i < MARGIN ; i++){
                 this.fillWithAir(worldIn, structureBoundingBoxIn,
@@ -85,88 +98,93 @@ public class StructureSmallHousePieces {
 
             // Build the house
             // Wall
+            IBlockState tempWall = blockGen.getWallBlockState();
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN, MARGIN - 1, MARGIN,
                     MARGIN + WIDTH - 1, MARGIN - 1 + HEIGHT - 1, MARGIN + DEPTH - 1,
-                    Blocks.PLANKS.getDefaultState(), Blocks.AIR.getDefaultState(), false);
+                    tempWall, Blocks.AIR.getDefaultState(), false);
             // Floor
+            IBlockState tempFloorCeil = blockGen.getFloorCeilBlockState();
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN, MARGIN - 1, MARGIN,
                     MARGIN + WIDTH - 1, MARGIN - 1, MARGIN + DEPTH - 1,
-                    Blocks.STONEBRICK.getDefaultState(), Blocks.STONEBRICK.getDefaultState(), false);
+                    tempFloorCeil, tempFloorCeil, false);
             // Floor light
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            IBlockState tempLight = blockGen.getLightBlockState();
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 3, MARGIN - 1, MARGIN + 2,
                     structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 3, MARGIN - 1, MARGIN + 5,
                     structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 8, MARGIN - 1, MARGIN + 2,
                     structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 8, MARGIN - 1, MARGIN + 5,
                     structureBoundingBoxIn);
             // Ceil
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN, MARGIN - 1 + HEIGHT - 1, MARGIN,
                     MARGIN + WIDTH - 1, MARGIN - 1 + HEIGHT - 1, MARGIN + DEPTH - 1,
-                    Blocks.STONEBRICK.getDefaultState(), Blocks.STONEBRICK.getDefaultState(), false);
-            this.setBlockState(worldIn, Blocks.STONEBRICK.getDefaultState(),
+                    tempFloorCeil, tempFloorCeil, false);
+            this.setBlockState(worldIn, tempFloorCeil,
                     MARGIN + 11, MARGIN - 1 + HEIGHT, MARGIN + 1,
                     structureBoundingBoxIn);
             // Ceil light
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 3, MARGIN - 1 + HEIGHT - 1, MARGIN + 5,
                     structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 3, MARGIN - 1 + HEIGHT - 1, MARGIN + 2,
                     structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 8, MARGIN - 1 + HEIGHT - 1, MARGIN + 2,
                     structureBoundingBoxIn);
-            this.setBlockState(worldIn, Blocks.GLOWSTONE.getDefaultState(),
+            this.setBlockState(worldIn, tempLight,
                     MARGIN + 8, MARGIN - 1 + HEIGHT - 1, MARGIN + 5,
                     structureBoundingBoxIn);
             // Pillars
+            IBlockState tempPillar = blockGen.getPillarBlockState();
             for(int i = 0 ; i < 4 ; i++){
-                this.setBlockState(worldIn, Blocks.LOG.getDefaultState(),
+                this.setBlockState(worldIn, tempPillar,
                         MARGIN, MARGIN + i, MARGIN,
                         structureBoundingBoxIn);
-                this.setBlockState(worldIn, Blocks.LOG.getDefaultState(),
+                this.setBlockState(worldIn, tempPillar,
                         MARGIN + WIDTH - 1, MARGIN + i, MARGIN,
                         structureBoundingBoxIn);
-                this.setBlockState(worldIn, Blocks.LOG.getDefaultState(),
+                this.setBlockState(worldIn, tempPillar,
                         MARGIN, MARGIN + i, MARGIN + DEPTH - 1,
                         structureBoundingBoxIn);
-                this.setBlockState(worldIn, Blocks.LOG.getDefaultState(),
+                this.setBlockState(worldIn, tempPillar,
                         MARGIN + WIDTH - 1, MARGIN + i, MARGIN + DEPTH - 1,
                         structureBoundingBoxIn);
-                this.setBlockState(worldIn, Blocks.LOG.getDefaultState(),
+                this.setBlockState(worldIn, tempPillar,
                         MARGIN + 9, MARGIN + i, MARGIN + 1,
                         structureBoundingBoxIn);
             }
             // Glass pane
+            IBlockState tempGlassPane = blockGen.getGlassPaneBlockState();
             // Front
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN + 4, MARGIN + 1, MARGIN,
                     MARGIN + 7, MARGIN + 2, MARGIN,
-                    Blocks.GLASS_PANE.getDefaultState(), Blocks.GLASS_PANE.getDefaultState(), false);
+                    tempGlassPane, tempGlassPane, false);
             // Back
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN + 6, MARGIN + 1, MARGIN + DEPTH - 1,
                     MARGIN + 9, MARGIN + 2, MARGIN + DEPTH - 1,
-                    Blocks.GLASS_PANE.getDefaultState(), Blocks.GLASS_PANE.getDefaultState(), false);
+                    tempGlassPane, tempGlassPane, false);
             // Right
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN, MARGIN + 1, MARGIN + 2,
                     MARGIN, MARGIN + 2, MARGIN + 5,
-                    Blocks.GLASS_PANE.getDefaultState(), Blocks.GLASS_PANE.getDefaultState(), false);
+                    tempGlassPane, tempGlassPane, false);
             // Left
             this.fillWithBlocks(worldIn, structureBoundingBoxIn,
                     MARGIN + WIDTH - 1, MARGIN + 1, MARGIN + 2,
                     MARGIN + WIDTH - 1, MARGIN + 2, MARGIN + 5,
-                    Blocks.GLASS_PANE.getDefaultState(), Blocks.GLASS_PANE.getDefaultState(), false);
+                    tempGlassPane, tempGlassPane, false);
             // Ladders
             IBlockState tempLadder = Blocks.LADDER.getDefaultState().withProperty(BlockLadder.FACING, EnumFacing.EAST);
             for(int i = 0 ; i < 5 ; i++){
@@ -175,7 +193,8 @@ public class StructureSmallHousePieces {
                         structureBoundingBoxIn);
             }
             // Door
-            IBlockState tempDoorL = Blocks.OAK_DOOR.getDefaultState()
+            BlockDoor tempDoorBlock = blockGen.getDoorBlock();
+            IBlockState tempDoorL = tempDoorBlock.getDefaultState()
                     .withProperty(BlockDoor.FACING, EnumFacing.SOUTH)
                     .withProperty(BlockDoor.HINGE, EnumHingePosition.RIGHT);
             IBlockState tempDoorR = tempDoorL.withProperty(BlockDoor.HINGE, EnumHingePosition.LEFT);
@@ -224,80 +243,82 @@ public class StructureSmallHousePieces {
             }
 
             // Generate base
-            // Front-Right
-            for(int iz = 0 ; iz < MARGIN ; iz++){
-                for(int ix = 0 ; ix < MARGIN ; ix++){
-                    int iy = Math.max(ix, iz);
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN - 1 - ix, MARGIN - 1 - iy, MARGIN - 1 - iz,
-                            structureBoundingBoxIn);
+            if(!isFloating){
+                // Front-Right
+                for(int iz = 0 ; iz < MARGIN ; iz++){
+                    for(int ix = 0 ; ix < MARGIN ; ix++){
+                        int iy = Math.max(ix, iz);
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN - 1 - ix, MARGIN - 1 - iy, MARGIN - 1 - iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Front-Center
-            for(int iz = 0 ; iz < MARGIN ; iz++){
-                for(int ix = 0 ; ix < WIDTH ; ix++){
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN + ix, MARGIN - 1 - iz, MARGIN - 1 - iz,
-                            structureBoundingBoxIn);
+                // Front-Center
+                for(int iz = 0 ; iz < MARGIN ; iz++){
+                    for(int ix = 0 ; ix < WIDTH ; ix++){
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN + ix, MARGIN - 1 - iz, MARGIN - 1 - iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Front-Left
-            for(int iz = 0 ; iz < MARGIN ; iz++){
-                for(int ix = 0 ; ix < MARGIN ; ix++){
-                    int iy = Math.max(ix, iz);
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN + WIDTH + ix, MARGIN - 1 - iy, MARGIN - 1 - iz,
-                            structureBoundingBoxIn);
+                // Front-Left
+                for(int iz = 0 ; iz < MARGIN ; iz++){
+                    for(int ix = 0 ; ix < MARGIN ; ix++){
+                        int iy = Math.max(ix, iz);
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN + WIDTH + ix, MARGIN - 1 - iy, MARGIN - 1 - iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Center-Right
-            for(int iz = 0 ; iz < DEPTH ; iz++){
-                for(int ix = 0 ; ix < MARGIN ; ix++){
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN - 1 - ix, MARGIN - 1 - ix, MARGIN + iz,
-                            structureBoundingBoxIn);
+                // Center-Right
+                for(int iz = 0 ; iz < DEPTH ; iz++){
+                    for(int ix = 0 ; ix < MARGIN ; ix++){
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN - 1 - ix, MARGIN - 1 - ix, MARGIN + iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Center-Center
-            for(int iz = 0 ; iz < DEPTH ; iz++) {
-                for (int ix = 0; ix < WIDTH; ix++) {
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN + ix, MARGIN - 2, MARGIN + iz,
-                            structureBoundingBoxIn);
+                // Center-Center
+                for(int iz = 0 ; iz < DEPTH ; iz++) {
+                    for (int ix = 0; ix < WIDTH; ix++) {
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN + ix, MARGIN - 2, MARGIN + iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Center-Left
-            for(int iz = 0 ; iz < DEPTH ; iz++){
-                for(int ix = 0 ; ix < MARGIN ; ix++){
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN + WIDTH + ix, MARGIN - 1 - ix, MARGIN + iz,
-                            structureBoundingBoxIn);
+                // Center-Left
+                for(int iz = 0 ; iz < DEPTH ; iz++){
+                    for(int ix = 0 ; ix < MARGIN ; ix++){
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN + WIDTH + ix, MARGIN - 1 - ix, MARGIN + iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Back-Right
-            for(int iz = 0 ; iz < MARGIN ; iz++){
-                for(int ix = 0 ; ix < MARGIN ; ix++){
-                    int iy = Math.max(ix, iz);
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN - 1 - ix, MARGIN - 1 - iy, MARGIN + DEPTH + iz,
-                            structureBoundingBoxIn);
+                // Back-Right
+                for(int iz = 0 ; iz < MARGIN ; iz++){
+                    for(int ix = 0 ; ix < MARGIN ; ix++){
+                        int iy = Math.max(ix, iz);
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN - 1 - ix, MARGIN - 1 - iy, MARGIN + DEPTH + iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Back-Center
-            for(int iz = 0 ; iz < MARGIN ; iz++){
-                for(int ix = 0 ; ix < WIDTH ; ix++){
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN + ix, MARGIN - 1 - iz, MARGIN + DEPTH + iz,
-                            structureBoundingBoxIn);
+                // Back-Center
+                for(int iz = 0 ; iz < MARGIN ; iz++){
+                    for(int ix = 0 ; ix < WIDTH ; ix++){
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN + ix, MARGIN - 1 - iz, MARGIN + DEPTH + iz,
+                                structureBoundingBoxIn);
+                    }
                 }
-            }
-            // Back-Left
-            for(int iz = 0 ; iz < MARGIN ; iz++){
-                for(int ix = 0 ; ix < MARGIN ; ix++){
-                    int iy = Math.max(ix, iz);
-                    this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
-                            MARGIN + WIDTH + ix, MARGIN - 1 - iy, MARGIN + DEPTH + iz,
-                            structureBoundingBoxIn);
+                // Back-Left
+                for(int iz = 0 ; iz < MARGIN ; iz++){
+                    for(int ix = 0 ; ix < MARGIN ; ix++){
+                        int iy = Math.max(ix, iz);
+                        this.replaceAirAndLiquidDownwards(worldIn, Blocks.COBBLESTONE.getDefaultState(),
+                                MARGIN + WIDTH + ix, MARGIN - 1 - iy, MARGIN + DEPTH + iz,
+                                structureBoundingBoxIn);
+                    }
                 }
             }
 

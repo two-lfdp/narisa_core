@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -11,6 +12,7 @@ import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 import net.minecraftforge.event.terraingen.InitMapGenEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import nnnnarisa.narisacore.world.gen.feature.*;
+import nnnnarisa.narisacore.world.gen.structure.*;
 
 public class NCDebugWorldGen {
     private NCWorldGenSpikes testGenerator1 = null;
@@ -45,7 +47,13 @@ public class NCDebugWorldGen {
     @SubscribeEvent
     public void onMapGenInit(InitMapGenEvent event){
         if(event.getType() == InitMapGenEvent.EventType.SCATTERED_FEATURE){
-            event.setNewGen(new NCDebugDummyMapGen(68, 3, 20, "minecraft", "chests/simple_dungeon"));
+            NCMapGenGiantPyramid pirami = new NCMapGenGiantPyramid(
+                    68, 68, 3, 20,
+                    false, "yellow");
+            pirami.addFilterBiome(Biomes.DESERT);
+            pirami.addFilterBiome(Biomes.DESERT_HILLS);
+            pirami.addFilterBiome(Biomes.MUTATED_DESERT);
+            event.setNewGen(pirami);
         }
     }
     // */

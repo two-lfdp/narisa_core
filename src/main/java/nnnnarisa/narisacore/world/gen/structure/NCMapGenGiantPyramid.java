@@ -1,6 +1,7 @@
 package nnnnarisa.narisacore.world.gen.structure;
 
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.structure.MapGenStructure;
@@ -8,25 +9,22 @@ import net.minecraft.world.gen.structure.StructureStart;
 
 import java.util.*;
 
-public class NCMapGenSmallHouse extends MapGenStructure {
-    private static final Map<String, INCBlockGenSmallHouse> BLOCK_GEN = new HashMap<>();
-    private final int fixedHeight;
+public class NCMapGenGiantPyramid extends MapGenStructure {
+    private static final Map<String, INCBlockGenGiantPyramid> BLOCK_GEN = new HashMap<>();
+    private final int minHeight, maxHeight;
     private final int minDist, maxDist;
-    private final String namespace, location;
     private final boolean isFloating;
     private final String blockGenName;
     private final List<Biome> filterBiomes;
 
-    public NCMapGenSmallHouse(int fixedHeight, int minDist, int maxDist,
-                              String namespace, String location,
-                              boolean isFloating, String blockGenName){
+    public NCMapGenGiantPyramid(int minHeight, int maxHeight, int minDist, int maxDist,
+                                boolean isFloating, String blockGenName){
         super();
 
-        this.fixedHeight = fixedHeight;
+        this.minHeight = minHeight;
+        this.maxHeight = maxHeight;
         this.minDist = minDist;
         this.maxDist = maxDist;
-        this.namespace = namespace;
-        this.location = location;
         this.isFloating = isFloating;
         this.blockGenName = blockGenName;
         this.filterBiomes = new LinkedList<Biome>();
@@ -34,7 +32,7 @@ public class NCMapGenSmallHouse extends MapGenStructure {
 
     @Override
     public String getStructureName(){
-        return "NCSmallHouse";
+        return "NCGiantPyramid";
     }
 
     @Override
@@ -68,7 +66,7 @@ public class NCMapGenSmallHouse extends MapGenStructure {
         int iz = (int)Math.floor((double)chunkZ / this.maxDist);
         ix *= this.maxDist;
         iz *= this.maxDist;
-        this.rand.setSeed(ix ^ iz ^ this.world.getSeed() ^ "tofuhouse".hashCode());
+        this.rand.setSeed(ix ^ iz ^ this.world.getSeed() ^ "pirami".hashCode());
         ix += this.rand.nextInt(this.maxDist - this.minDist);
         iz += this.rand.nextInt(this.maxDist - this.minDist);
 
@@ -103,9 +101,9 @@ public class NCMapGenSmallHouse extends MapGenStructure {
 
     @Override
     protected StructureStart getStructureStart(int chunkX, int chunkZ){
-        return new NCMapGenSmallHouse.Start(
+        return new NCMapGenGiantPyramid.Start(
                 this.rand, chunkX, chunkZ,
-                this.fixedHeight, this.namespace, this.location,
+                this.minHeight, this.maxHeight,
                 this.isFloating, this.blockGenName);
     }
 
@@ -113,11 +111,11 @@ public class NCMapGenSmallHouse extends MapGenStructure {
         this.filterBiomes.add(biome);
     }
 
-    public static void addBlockGen(String name, INCBlockGenSmallHouse blockGen){
+    public static void addBlockGen(String name, INCBlockGenGiantPyramid blockGen){
         BLOCK_GEN.put(name, blockGen);
     }
 
-    public static INCBlockGenSmallHouse getBlockGen(String name){
+    public static INCBlockGenGiantPyramid getBlockGen(String name){
         return BLOCK_GEN.get(name);
     }
 
@@ -125,15 +123,13 @@ public class NCMapGenSmallHouse extends MapGenStructure {
         public Start(){}
 
         public Start(Random random, int chunkX, int chunkZ,
-                     int fixedHeight, String namespace, String location,
+                     int minHeight, int maxHeight,
                      boolean isFloating, String blockGenName){
             super(chunkX, chunkZ);
 
-            StructureSmallHousePieces.House startPiece =
-                    new StructureSmallHousePieces.House(
-                            random,
-                            chunkX*16, fixedHeight, chunkZ*16,
-                            namespace, location,
+            StructureGiantPyramidPieces.Pyramid startPiece =
+                    new StructureGiantPyramidPieces.Pyramid(random,
+                            chunkX * 16, MathHelper.getInt(random, minHeight, maxHeight), chunkZ * 16,
                             isFloating, blockGenName);
             this.components.add(startPiece);
             this.updateBoundingBox();
