@@ -3,12 +3,12 @@
     "ingredients": [
         {
             "type": "forge:ore_dict",
-            "ore": "ingotTin"
+            "ore": "blockAmber"
         }
     ],
     "result": {
-        "item": "narisacore:nugget",
-        "data": 1,
+        "item": "narisacore:gem",
+        "data": 2,
         "count": 9
     }
 }

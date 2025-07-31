@@ -3,12 +3,12 @@
     "ingredients": [
         {
             "type": "forge:ore_dict",
-            "ore": "ingotTin"
+            "ore": "blockMalachite"
         }
     ],
     "result": {
-        "item": "narisacore:nugget",
-        "data": 1,
+        "item": "narisacore:gem",
+        "data": 4,
         "count": 9
     }
 }

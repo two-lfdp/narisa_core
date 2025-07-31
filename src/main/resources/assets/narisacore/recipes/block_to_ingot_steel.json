@@ -2,8 +2,8 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "narisacore:storage_metal",
-            "data": 8
+            "type": "forge:ore_dict",
+            "ore": "blockSteel"
         }
     ],
     "result": {

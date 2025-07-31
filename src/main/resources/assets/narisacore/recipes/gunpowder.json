@@ -2,16 +2,16 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "narisacore:dust",
-            "data": 0
+            "type": "forge:ore_dict",
+            "ore": "dustSulfur"
         },
         {
-            "item": "narisacore:dust",
-            "data": 1
+            "type": "forge:ore_dict",
+            "ore": "dustNiter"
         },
         {
-            "item": "narisacore:dust",
-            "data": 1
+            "type": "forge:ore_dict",
+            "ore": "dustNiter"
         },
         {
             "item": "minecraft:coal",

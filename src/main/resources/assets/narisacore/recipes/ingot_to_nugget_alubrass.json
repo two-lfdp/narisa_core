@@ -2,8 +2,8 @@
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
         {
-            "item": "narisacore:ingot",
-            "data": 7
+            "type": "forge:ore_dict",
+            "ore": "ingotAlubrass"
         }
     ],
     "result": {

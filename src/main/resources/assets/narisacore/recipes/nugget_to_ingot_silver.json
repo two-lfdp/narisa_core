@@ -7,8 +7,8 @@
     ],
     "key": {
         "#": {
-            "item": "narisacore:nugget",
-            "data": 4
+            "type": "forge:ore_dict",
+            "ore": "nuggetSilver"
         }
     },
     "result": {

@@ -3,11 +3,11 @@
     "ingredients": [
         {
             "type": "forge:ore_dict",
-            "ore": "ingotTin"
+            "ore": "blockTopaz"
         }
     ],
     "result": {
-        "item": "narisacore:nugget",
+        "item": "narisacore:gem",
         "data": 1,
         "count": 9
     }

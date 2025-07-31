@@ -7,8 +7,8 @@
     ],
     "key": {
         "#": {
-            "item": "narisacore:ingot",
-            "data": 5
+            "type": "forge:ore_dict",
+            "ore": "ingotBronze"
         }
     },
     "result": {

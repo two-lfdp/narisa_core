@@ -7,7 +7,8 @@
     ],
     "key": {
         "#": {
-            "item": "narisacore:coal_coke"
+            "type": "forge:ore_dict",
+            "ore": "fuelCoke"
         }
     },
     "result": {

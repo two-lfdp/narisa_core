@@ -8,11 +8,11 @@
     "key": {
         "#": {
             "type": "forge:ore_dict",
-            "ore": "nuggetAlubrass"
+            "ore": "gemSapphire"
         }
     },
     "result": {
-        "item": "narisacore:ingot",
-        "data": 7
+        "item": "narisacore:storage_gem",
+        "data": 5
     }
 }

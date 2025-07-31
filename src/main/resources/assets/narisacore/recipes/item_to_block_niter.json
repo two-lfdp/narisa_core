@@ -7,8 +7,8 @@
     ],
     "key": {
         "#": {
-            "item": "narisacore:dust",
-            "data": 1
+            "type": "forge:ore_dict",
+            "ore": "dustNiter"
         }
     },
     "result": {
