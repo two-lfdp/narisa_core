@@ -17,6 +17,7 @@ import nnnnarisa.narisacore.item.*;
 public class NCItems {
     public static final NCItemMaterialMetal INGOT = new NCItemMaterialMetal("ingot");;
     public static final NCItemMaterialMetal NUGGET = new NCItemMaterialMetal("nugget");
+    public static final NCItemMaterialGem GEM = new NCItemMaterialGem();
     public static final NCItemCoalCoke COAL_COKE = new NCItemCoalCoke();
     public static final NCItemMaterialDust DUST = new NCItemMaterialDust();
 
@@ -55,6 +56,7 @@ public class NCItems {
     public static void registerItems(IForgeRegistry<Item> registry){
         INGOT.registerItems(registry);
         NUGGET.registerItems(registry);
+        GEM.registerItems(registry);
         COAL_COKE.registerItems(registry);
         DUST.registerItems(registry);
 
@@ -74,6 +76,7 @@ public class NCItems {
     public static void registerModels(ModelRegistryEvent event){
         INGOT.registerModels(event);
         NUGGET.registerModels(event);
+        GEM.registerModels(event);
         COAL_COKE.registerModels(event);
         DUST.registerModels(event);
 
