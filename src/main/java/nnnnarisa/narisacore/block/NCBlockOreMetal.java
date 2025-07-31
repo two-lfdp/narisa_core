@@ -19,15 +19,15 @@ public class NCBlockOreMetal extends INCBlockMulti.Impl {
     private static final EnumMetalType[] TYPE_SIMPLE = EnumMetalType.getSimpleMetal();
 
     public NCBlockOreMetal(){
-        super(Material.IRON);
+        super(Material.ROCK);
 
         setUnlocalizedName("oreMetal");
         setRegistryName(NarisaCore.MODID, "ore_metal");
         setCreativeTab(NarisaCore.TAB_NARISACORE);
 
-        setHardness(5.0F);
-        setResistance(10.0F);
-        setSoundType(SoundType.METAL);
+        setHardness(3.0F);
+        setResistance(5.0F);
+        setSoundType(SoundType.STONE);
         setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, EnumMetalType.COPPER));
 
         for(int i = 0 ; i < TYPE_SIMPLE.length ; i++){

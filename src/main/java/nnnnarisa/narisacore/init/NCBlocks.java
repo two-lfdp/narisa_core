@@ -16,6 +16,7 @@ public class NCBlocks {
     public static final NCBlockMaterialMisc STORAGE_MISC = new NCBlockMaterialMisc();
 
     public static final NCBlockOreMetal ORE_METAL = new NCBlockOreMetal();
+    public static final NCBlockOreGem ORE_GEM = new NCBlockOreGem();
     public static final NCBlockOreMisc ORE_MISC = new NCBlockOreMisc();
     public static final NCBlockOreDense ORE_DENSE = new NCBlockOreDense();
 
@@ -30,6 +31,7 @@ public class NCBlocks {
     public static final NCItemBlockMaterialMisc ITEM_STORAGE_MISC = new NCItemBlockMaterialMisc(STORAGE_MISC);
 
     public static final NCItemBlockOreMetal ITEM_ORE_METAL = new NCItemBlockOreMetal(ORE_METAL);
+    public static final NCItemBlockOreGem ITEM_ORE_GEM = new NCItemBlockOreGem(ORE_GEM);
     public static final NCItemBlockOreMisc ITEM_ORE_MISC = new NCItemBlockOreMisc(ORE_MISC);
     public static final NCItemBlockOreDense ITEM_ORE_DENSE = new NCItemBlockOreDense(ORE_DENSE);
 
@@ -44,6 +46,7 @@ public class NCBlocks {
         STORAGE_MISC.registerBlocks(registry);
 
         ORE_METAL.registerBlocks(registry);
+        ORE_GEM.registerBlocks(registry);
         ORE_MISC.registerBlocks(registry);
         ORE_DENSE.registerBlocks(registry);
 
@@ -60,6 +63,7 @@ public class NCBlocks {
         ITEM_STORAGE_MISC.registerItems(registry);
 
         ITEM_ORE_METAL.registerItems(registry);
+        ITEM_ORE_GEM.registerItems(registry);
         ITEM_ORE_MISC.registerItems(registry);
         ITEM_ORE_DENSE.registerItems(registry);
 
@@ -76,6 +80,7 @@ public class NCBlocks {
         ITEM_STORAGE_MISC.registerModels(event);
 
         ITEM_ORE_METAL.registerModels(event);
+        ITEM_ORE_GEM.registerModels(event);
         ITEM_ORE_MISC.registerModels(event);
         ITEM_ORE_DENSE.registerModels(event);
 
@@ -86,6 +91,7 @@ public class NCBlocks {
 
     public static void registerSmeltingRecipes(){
         ITEM_ORE_METAL.registerSmeltingRecipes();
+        ITEM_ORE_GEM.registerSmeltingRecipes();
         ITEM_ORE_MISC.registerSmeltingRecipes();
         ITEM_ORE_DENSE.registerSmeltingRecipes();
     }

@@ -30,13 +30,14 @@ public class NCBlockOreDense extends INCBlockMulti.Impl {
     private static final EnumType[] TYPE_VALUES = EnumType.values();
 
     public NCBlockOreDense(){
-        super(Material.IRON);
+        super(Material.ROCK);
 
         setUnlocalizedName("oreDense");
         setRegistryName(NarisaCore.MODID, "ore_dense");
         setCreativeTab(NarisaCore.TAB_NARISACORE);
 
-        setHardness(0.8F);
+        setHardness(3.0F);
+        setResistance(5.0F);
         setSoundType(SoundType.STONE);
         setDefaultState(getBlockState().getBaseState().withProperty(VARIANT, EnumType.SULFUR));
 
