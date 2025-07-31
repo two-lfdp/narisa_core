@@ -11,6 +11,7 @@ import nnnnarisa.narisacore.item.*;
 
 public class NCBlocks {
     public static final NCBlockMaterialMetal STORAGE_METAL = new NCBlockMaterialMetal();
+    public static final NCBlockMaterialGem STORAGE_GEM = new NCBlockMaterialGem();
     public static final NCBlockMaterialFuel STORAGE_FUEL = new NCBlockMaterialFuel();
     public static final NCBlockMaterialMisc STORAGE_MISC = new NCBlockMaterialMisc();
 
@@ -24,6 +25,7 @@ public class NCBlocks {
     public static final NCBlockLapisStairs LAPIS_STAIRS = new NCBlockLapisStairs(LAPIS_DECO);
 
     public static final NCItemBlockMaterialMetal ITEM_STORAGE_METAL = new NCItemBlockMaterialMetal(STORAGE_METAL);
+    public static final NCItemBlockMaterialGem ITEM_STORAGE_GEM = new NCItemBlockMaterialGem(STORAGE_GEM);
     public static final NCItemBlockMaterialFuel ITEM_STORAGE_FUEL = new NCItemBlockMaterialFuel(STORAGE_FUEL);
     public static final NCItemBlockMaterialMisc ITEM_STORAGE_MISC = new NCItemBlockMaterialMisc(STORAGE_MISC);
 
@@ -37,6 +39,7 @@ public class NCBlocks {
 
     public static void registerBlocks(IForgeRegistry<Block> registry){
         STORAGE_METAL.registerBlocks(registry);
+        STORAGE_GEM.registerBlocks(registry);
         STORAGE_FUEL.registerBlocks(registry);
         STORAGE_MISC.registerBlocks(registry);
 
@@ -52,6 +55,7 @@ public class NCBlocks {
 
     public static void registerBlockItems(IForgeRegistry<Item> registry){
         ITEM_STORAGE_METAL.registerItems(registry);
+        ITEM_STORAGE_GEM.registerItems(registry);
         ITEM_STORAGE_FUEL.registerItems(registry);
         ITEM_STORAGE_MISC.registerItems(registry);
 
@@ -67,6 +71,7 @@ public class NCBlocks {
     @SideOnly(Side.CLIENT)
     public static void registerModels(ModelRegistryEvent event){
         ITEM_STORAGE_METAL.registerModels(event);
+        ITEM_STORAGE_GEM.registerModels(event);
         ITEM_STORAGE_FUEL.registerModels(event);
         ITEM_STORAGE_MISC.registerModels(event);
 

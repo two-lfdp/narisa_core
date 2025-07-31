@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=ruby": {
+      "model": "narisacore:storage/storage_ruby"
+    },
+    "type=topaz": {
+      "model": "narisacore:storage/storage_topaz"
+    },
+    "type=amber": {
+      "model": "narisacore:storage/storage_amber"
+    },
+    "type=peridot": {
+      "model": "narisacore:storage/storage_peridot"
+    },
+    "type=malachite": {
+      "model": "narisacore:storage/storage_malachite"
+    },
+    "type=sapphire": {
+      "model": "narisacore:storage/storage_sapphire"
+    },
+    "type=tunzernite": {
+      "model": "narisacore:storage/storage_tunzernite"
+    }
+  }
+}
