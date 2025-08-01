@@ -1,0 +1,26 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "type=ruby": {
+      "model": "narisacore:ore/dense/ore_dense_ruby"
+    },
+    "type=topaz": {
+      "model": "narisacore:ore/dense/ore_dense_topaz"
+    },
+    "type=amber": {
+      "model": "narisacore:ore/dense/ore_dense_amber"
+    },
+    "type=peridot": {
+      "model": "narisacore:ore/dense/ore_dense_peridot"
+    },
+    "type=malachite": {
+      "model": "narisacore:ore/dense/ore_dense_malachite"
+    },
+    "type=sapphire": {
+      "model": "narisacore:ore/dense/ore_dense_sapphire"
+    },
+    "type=tunzernite": {
+      "model": "narisacore:ore/dense/ore_dense_tunzernite"
+    }
+  }
+}

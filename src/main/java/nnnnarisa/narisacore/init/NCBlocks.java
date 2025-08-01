@@ -19,6 +19,7 @@ public class NCBlocks {
     public static final NCBlockOreGem ORE_GEM = new NCBlockOreGem();
     public static final NCBlockOreMisc ORE_MISC = new NCBlockOreMisc();
     public static final NCBlockOreDense ORE_DENSE = new NCBlockOreDense();
+    public static final NCBlockOreGemDense ORE_GEM_DENSE = new NCBlockOreGemDense();
 
     public static final NCBlockDecorativeLapis LAPIS_DECO = new NCBlockDecorativeLapis();
     public static final NCBlockLapisSlab LAPIS_SLAB_HALF = new NCBlockLapisSlab.Half();
@@ -34,6 +35,7 @@ public class NCBlocks {
     public static final NCItemBlockOreGem ITEM_ORE_GEM = new NCItemBlockOreGem(ORE_GEM);
     public static final NCItemBlockOreMisc ITEM_ORE_MISC = new NCItemBlockOreMisc(ORE_MISC);
     public static final NCItemBlockOreDense ITEM_ORE_DENSE = new NCItemBlockOreDense(ORE_DENSE);
+    public static final NCItemBlockOreGemDense ITEM_ORE_GEM_DENSE = new NCItemBlockOreGemDense(ORE_GEM_DENSE);
 
     public static final NCItemBlockDecorativeLapis ITEM_LAPIS_DECO = new NCItemBlockDecorativeLapis(LAPIS_DECO);
     public static final NCItemBlockLapisSlab ITEM_LAPIS_SLAB = new NCItemBlockLapisSlab(LAPIS_SLAB_HALF, LAPIS_SLAB_DOUBLE);
@@ -49,6 +51,7 @@ public class NCBlocks {
         ORE_GEM.registerBlocks(registry);
         ORE_MISC.registerBlocks(registry);
         ORE_DENSE.registerBlocks(registry);
+        ORE_GEM_DENSE.registerBlocks(registry);
 
         LAPIS_DECO.registerBlocks(registry);
         LAPIS_SLAB_HALF.registerBlocks(registry);
@@ -66,6 +69,7 @@ public class NCBlocks {
         ITEM_ORE_GEM.registerItems(registry);
         ITEM_ORE_MISC.registerItems(registry);
         ITEM_ORE_DENSE.registerItems(registry);
+        ITEM_ORE_GEM_DENSE.registerItems(registry);
 
         ITEM_LAPIS_DECO.registerItems(registry);
         ITEM_LAPIS_SLAB.registerItems(registry);
@@ -83,6 +87,7 @@ public class NCBlocks {
         ITEM_ORE_GEM.registerModels(event);
         ITEM_ORE_MISC.registerModels(event);
         ITEM_ORE_DENSE.registerModels(event);
+        ITEM_ORE_GEM_DENSE.registerModels(event);
 
         ITEM_LAPIS_DECO.registerModels(event);
         ITEM_LAPIS_SLAB.registerModels(event);
@@ -94,5 +99,6 @@ public class NCBlocks {
         ITEM_ORE_GEM.registerSmeltingRecipes();
         ITEM_ORE_MISC.registerSmeltingRecipes();
         ITEM_ORE_DENSE.registerSmeltingRecipes();
+        ITEM_ORE_GEM_DENSE.registerSmeltingRecipes();
     }
 }
