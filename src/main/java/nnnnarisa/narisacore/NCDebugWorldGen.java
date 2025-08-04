@@ -47,13 +47,12 @@ public class NCDebugWorldGen {
     @SubscribeEvent
     public void onMapGenInit(InitMapGenEvent event){
         if(event.getType() == InitMapGenEvent.EventType.SCATTERED_FEATURE){
-            NCMapGenGiantPyramid pirami = new NCMapGenGiantPyramid(
-                    68, 68, 3, 20,
-                    false, "yellow");
-            pirami.addFilterBiome(Biomes.DESERT);
-            pirami.addFilterBiome(Biomes.DESERT_HILLS);
-            pirami.addFilterBiome(Biomes.MUTATED_DESERT);
-            event.setNewGen(pirami);
+            NCMapGenSwampHouse hut = new NCMapGenSwampHouse(70,
+                    8, 32,
+                    "minecraft", "chests/desert_pyramid",
+                    "normal");
+
+            event.setNewGen(hut);
         }
     }
     // */

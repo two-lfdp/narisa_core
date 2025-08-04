@@ -231,13 +231,13 @@ public class StructureSmallHousePieces {
                     structureBoundingBoxIn);
             // Chests
             ResourceLocation locationChest = new ResourceLocation(this.namespace, this.location);
-            if(!placedChest1){
-                placedChest1 = this.generateChest(worldIn, structureBoundingBoxIn, randomIn,
+            if(!this.placedChest1){
+                this.placedChest1 = this.generateChest(worldIn, structureBoundingBoxIn, randomIn,
                         MARGIN + 6, MARGIN, MARGIN + DEPTH - 2,
                         locationChest);
             }
-            if(!placedChest2){
-                placedChest2 = this.generateChest(worldIn, structureBoundingBoxIn, randomIn,
+            if(!this.placedChest2){
+                this.placedChest2 = this.generateChest(worldIn, structureBoundingBoxIn, randomIn,
                         MARGIN + 7, MARGIN, MARGIN + DEPTH - 2,
                         locationChest);
             }
